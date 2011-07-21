@@ -1,11 +1,11 @@
 import unittest
 from datetime import datetime
 from datetime import date
-from telapi.rest.resources import parse_date
-from telapi.rest.resources import transform_params
-from telapi.rest.resources import convert_keys
-from telapi.rest.resources import convert_case
-from telapi.rest.resources import normalize_dates
+from telapi_helper.rest.resources import parse_date
+from telapi_helper.rest.resources import transform_params
+from telapi_helper.rest.resources import convert_keys
+from telapi_helper.rest.resources import convert_case
+from telapi_helper.rest.resources import normalize_dates
 
 
 class CoreTest(unittest.TestCase):

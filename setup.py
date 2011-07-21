@@ -4,7 +4,7 @@ setup(
     version = "3.0.1",
     description = "Tel API client and TwiML generator",
     author = "Telapi",
-    author_email = "help@telapi.com",
+    author_email = "help@telapi_helper.com",
     url = "http://github.com/telapi/telapi-python/",
     keywords = ["telapi","twiml"],
     install_requires = ["httplib2"],

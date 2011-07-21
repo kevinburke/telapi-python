@@ -26,7 +26,7 @@ class RequestValidator(object):
         return computed.strip()
 
     def validate(self, uri, params, signature):
-        """Validate a request from Telapi
+        """Validate a request from telapi_helper
 
         :param uri: full URI that Telapi requested on your server
         :param params: post vars that Telapi sent with the request

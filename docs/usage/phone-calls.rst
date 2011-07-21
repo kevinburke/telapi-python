@@ -1,4 +1,4 @@
-.. module:: telapi.rest
+.. module:: telapi_helper.rest
 
 =====================
 Phone Calls
@@ -9,11 +9,11 @@ The :class:`Calls` resource manages all interaction with Telapi phone calls, inc
 Making a Phone Call
 -------------------
 
-The :class:`Calls` resource allows you to make outgoing calls. Before a call can be successfully started, you'll need a url which outputs valid `TwiML <http://www.telapi.com/docs/api/twiml/>`_.
+The :class:`Calls` resource allows you to make outgoing calls. Before a call can be successfully started, you'll need a url which outputs valid `TwiML <http://www.telapi_helper.com/docs/api/twiml/>`_.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     call = client.calls.make(to="9991231234, from_="9991231234")
@@ -28,7 +28,7 @@ If you already have a :class:`Call` sid, you can use the client to retrieve that
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     sid = "CA12341234"
@@ -41,7 +41,7 @@ Each :class:`Call` resource also has access to its `notifications`, `recordings`
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     sid = "CA12341234"
@@ -55,7 +55,7 @@ However, what if you only have a `CallSid`, and not the actual :class:`Resource`
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     sid = "CA24234"
@@ -71,8 +71,8 @@ The :class:`Call` resource makes it easy to find current live calls and redirect
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
-    from telapi.rest.resources import Call
+    from telapi_helper.rest import TelapiRestClient
+    from telapi_helper.rest.resources import Call
 
     client = TelapiRestClient()
     calls = client.calls.list(statsus=Call.IN_PROGRESS)
@@ -83,8 +83,8 @@ Ending all live calls is also possible
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
-    from telapi.rest.resources import Call
+    from telapi_helper.rest import TelapiRestClient
+    from telapi_helper.rest.resources import Call
 
     client = TelapiRestClient()
     calls = client.calls.list(status=Call.IN_PROGRESS)
@@ -98,7 +98,7 @@ the record without having to use :meth:`get` first.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     sid = "CA12341234"
@@ -108,7 +108,7 @@ Handing up the call also works.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     sid = "CA12341234"

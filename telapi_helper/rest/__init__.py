@@ -1,19 +1,19 @@
 import logging
 import os
-from telapi import TelapiException
-from telapi.rest.resources import make_request
-from telapi.rest.resources import Accounts
-from telapi.rest.resources import Applications
-from telapi.rest.resources import Calls
-from telapi.rest.resources import CallerIds
-from telapi.rest.resources import Notifications
-from telapi.rest.resources import Recordings
-from telapi.rest.resources import Transcriptions
-from telapi.rest.resources import Sms
-from telapi.rest.resources import Participants
-from telapi.rest.resources import PhoneNumbers
-from telapi.rest.resources import Conferences
-from telapi.rest.resources import Sandboxes
+from telapi_helper import TelapiException
+from telapi_helper.rest.resources import make_request
+from telapi_helper.rest.resources import Accounts
+from telapi_helper.rest.resources import Applications
+from telapi_helper.rest.resources import Calls
+from telapi_helper.rest.resources import CallerIds
+from telapi_helper.rest.resources import Notifications
+from telapi_helper.rest.resources import Recordings
+from telapi_helper.rest.resources import Transcriptions
+from telapi_helper.rest.resources import Sms
+from telapi_helper.rest.resources import Participants
+from telapi_helper.rest.resources import PhoneNumbers
+from telapi_helper.rest.resources import Conferences
+from telapi_helper.rest.resources import Sandboxes
 from urllib import urlencode
 from urlparse import urljoin
 

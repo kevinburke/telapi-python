@@ -2,9 +2,9 @@
 import re
 import telapi
 import unittest
-from telapi import twiml
-from telapi.twiml import TwimlException
-from telapi.twiml import Response
+from telapi_helper import twiml
+from telapi_helper.twiml import TwimlException
+from telapi_helper.twiml import Response
 
 class TelapiTest(unittest.TestCase):
     def strip(self, xml):

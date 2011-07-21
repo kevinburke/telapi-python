@@ -15,7 +15,7 @@ Getting started with the Tel API couldn't be easier. Create a Telapi REST client
 
 ```python
 
-    from telapi.rest import TelapiRestClient()
+    from telapi_helper.rest import TelapiRestClient()
 
     client = TelapiRestClient()
     call = client.calls.make(to="9991231234", from_="9991231234",
@@ -26,11 +26,11 @@ Getting started with the Tel API couldn't be easier. Create a Telapi REST client
 
 ### Generating TwiML
 
-To control phone calls, your application need to output TwiML. Use :class:`telapi.twiml..Response` to easily create such responses.
+To control phone calls, your application need to output TwiML. Use :class:`telapi_helper.twiml..Response` to easily create such responses.
 
 ```python
 
-    from telapi import twiml
+    from telapi_helper import twiml
 
     r = twiml.Response()
     r.play("monkey.mp3", loop=5)

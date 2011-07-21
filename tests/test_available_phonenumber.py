@@ -1,9 +1,9 @@
 import unittest
 from mock import Mock
-from telapi import TelapiException
-from telapi.rest.resources import AvailablePhoneNumber
-from telapi.rest.resources import AvailablePhoneNumbers
-from telapi.rest.resources import PhoneNumbers
+from telapi_helper import TelapiException
+from telapi_helper.rest.resources import AvailablePhoneNumber
+from telapi_helper.rest.resources import AvailablePhoneNumbers
+from telapi_helper.rest.resources import PhoneNumbers
 
 
 class AvailablePhoneNumberTest(unittest.TestCase):

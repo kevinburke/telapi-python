@@ -2,7 +2,7 @@
 Telapi Python
 ==================================
 
-Make requests to Telapi's `REST API <http://www.telapi.com/docs/api/twiml/>`_ and create `TwiML <http://www.telapi.com/docs/api/twiml/>`_ without a hassle. And you thought Telapi couldn't get any easier.
+Make requests to Telapi's `REST API <http://www.telapi_helper.com/docs/api/twiml/>`_ and create `TwiML <http://www.telapi_helper.com/docs/api/twiml/>`_ without a hassle. And you thought Telapi couldn't get any easier.
 
 .. _installation:
 
@@ -22,7 +22,7 @@ You can also download the source and install using :data:`setuptools`
 Getting Started
 ================
 
-The :doc:`/getting-started` will get you up and running in a few quick minutes. This guide assumes you understand the core concepts of Telapi. If you've never used Telapi before, don't fret! Just read `about how Telapi works <http://www.telapi.com/api/>`_ and then jump in.
+The :doc:`/getting-started` will get you up and running in a few quick minutes. This guide assumes you understand the core concepts of telapi_helper. If you've never used Telapi before, don't fret! Just read `about how Telapi works <http://www.telapi_helper.com/api/>`_ and then jump in.
 
 .. _user-guide:
 
@@ -63,7 +63,7 @@ Generates valid TwiML for controlling and manipulating phone calls.
 Utilites
 ----------
 
-Small functions useful for validating requests are coming from Telapi
+Small functions useful for validating requests are coming from telapi_helper
 
 .. toctree::
     :maxdepth: 1

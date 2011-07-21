@@ -1,12 +1,12 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 ================
 Transcriptions
 ================
 
-Transcriptions are generated from recordings via the `TwiML <Record> verb <http://www.telapi.com/docs/api/twiml/record>`_. Using the API, you can only read your transcription records.
+Transcriptions are generated from recordings via the `TwiML <Record> verb <http://www.telapi_helper.com/docs/api/twiml/record>`_. Using the API, you can only read your transcription records.
 
-For more information, see the `Transcriptions REST Resource <http://www.telapi.com/docs/api/rest/transcription>`_ documentation.
+For more information, see the `Transcriptions REST Resource <http://www.telapi_helper.com/docs/api/rest/transcription>`_ documentation.
 
 Listing Your Transcriptions
 ----------------------------
@@ -15,7 +15,7 @@ The following code will print out lengths :attr:`friendly_name` for each :class:
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     for transcription in conn.transcriptions.list():

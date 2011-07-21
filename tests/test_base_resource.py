@@ -5,9 +5,9 @@ import unittest
 from mock import Mock
 from nose.tools import assert_equals
 from nose.tools import raises
-from telapi.rest.resources import Resource
-from telapi.rest.resources import ListResource
-from telapi.rest.resources import InstanceResource
+from telapi_helper.rest.resources import Resource
+from telapi_helper.rest.resources import ListResource
+from telapi_helper.rest.resources import InstanceResource
 
 base_uri = "https://api.telapi.com/2010-04-01"
 account_sid = "AC123"

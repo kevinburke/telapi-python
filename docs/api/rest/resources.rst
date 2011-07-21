@@ -1,7 +1,7 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 =============================
-:mod:`telapi.rest.resources`
+:mod:`telapi_helper.rest.resources`
 =============================
 
 .. autoclass:: ListResource
@@ -133,11 +133,11 @@ Applications
 Calls
 >>>>>>
 
-.. autoclass:: telapi.rest.resources.Calls
+.. autoclass:: telapi_helper.rest.resources.Calls
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Call
+.. autoclass:: telapi_helper.rest.resources.Call
    :members:
 
    .. attribute:: sid
@@ -211,11 +211,11 @@ Calls
 Caller Ids
 >>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.CallerIds
+.. autoclass:: telapi_helper.rest.resources.CallerIds
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.CallerId
+.. autoclass:: telapi_helper.rest.resources.CallerId
    :members:
 
    .. attribute:: sid
@@ -249,11 +249,11 @@ Caller Ids
 Conferences
 >>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Conferences
+.. autoclass:: telapi_helper.rest.resources.Conferences
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Conference
+.. autoclass:: telapi_helper.rest.resources.Conference
    :members:
 
    .. attribute:: sid
@@ -292,11 +292,11 @@ Conferences
 Notifications
 >>>>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Notifications
+.. autoclass:: telapi_helper.rest.resources.Notifications
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Notification
+.. autoclass:: telapi_helper.rest.resources.Notification
    :members:
 
    .. attribute:: sid
@@ -370,11 +370,11 @@ Notifications
 Participlants
 >>>>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Participants
+.. autoclass:: telapi_helper.rest.resources.Participants
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Participant
+.. autoclass:: telapi_helper.rest.resources.Participant
    :members:
 
    .. attribute:: call_sid
@@ -417,11 +417,11 @@ Participlants
 Phone Numbers
 >>>>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.PhoneNumbers
+.. autoclass:: telapi_helper.rest.resources.PhoneNumbers
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.PhoneNumber
+.. autoclass:: telapi_helper.rest.resources.PhoneNumber
    :members:
 
    .. attribute:: sid
@@ -500,7 +500,7 @@ Phone Numbers
 
       The URI for this resource, relative to https://api.telapi.com.
 
-.. autoclass:: telapi.rest.resources.AvailablePhoneNumber
+.. autoclass:: telapi_helper.rest.resources.AvailablePhoneNumber
    :members:
 
    .. attribute:: friendly_name
@@ -541,11 +541,11 @@ Phone Numbers
 Recordings
 >>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Recordings
+.. autoclass:: telapi_helper.rest.resources.Recordings
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Recording
+.. autoclass:: telapi_helper.rest.resources.Recording
    :members:
 
    .. attribute:: sid
@@ -598,11 +598,11 @@ Recordings
 Sandbox
 >>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Sandboxes
+.. autoclass:: telapi_helper.rest.resources.Sandboxes
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Sandbox
+.. autoclass:: telapi_helper.rest.resources.Sandbox
    :members:
 
    .. attribute:: pin
@@ -649,10 +649,10 @@ Sandbox
 Short Codes
 >>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.ShortCodes
+.. autoclass:: telapi_helper.rest.resources.ShortCodes
    :members:
 
-.. autoclass:: telapi.rest.resources.ShortCode
+.. autoclass:: telapi_helper.rest.resources.ShortCode
    :members:
 
    .. attribute:: sid
@@ -707,10 +707,10 @@ Short Codes
 SMS Messages
 >>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.SmsMessages
+.. autoclass:: telapi_helper.rest.resources.SmsMessages
    :members:
 
-.. autoclass:: telapi.rest.resources.SmsMessage
+.. autoclass:: telapi_helper.rest.resources.SmsMessage
    :members:
 
    .. attribute:: sid
@@ -769,11 +769,11 @@ SMS Messages
 Transcriptions
 >>>>>>>>>>>>>>>
 
-.. autoclass:: telapi.rest.resources.Transcriptions
+.. autoclass:: telapi_helper.rest.resources.Transcriptions
    :members:
    :exclude-members: instance
 
-.. autoclass:: telapi.rest.resources.Transcription
+.. autoclass:: telapi_helper.rest.resources.Transcription
    :members:
 
    .. attribute:: sid

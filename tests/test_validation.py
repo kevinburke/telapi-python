@@ -1,5 +1,5 @@
 import unittest
-from telapi.util import RequestValidator
+from telapi_helper.util import RequestValidator
 
 
 class ValidationTest(unittest.TestCase):

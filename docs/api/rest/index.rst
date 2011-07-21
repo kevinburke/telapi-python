@@ -1,7 +1,7 @@
-.. module:: telapi.rest
+.. module:: telapi_helper.rest
 
 ==============================
-:mod:`telapi.rest`
+:mod:`telapi_helper.rest`
 ==============================
 
 .. autoclass:: TelapiRestClient

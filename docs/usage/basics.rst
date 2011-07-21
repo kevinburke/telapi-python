@@ -1,4 +1,4 @@
-.. module:: telapi.rest
+.. module:: telapi_helper.rest
 
 =========================
 Accessing REST Resources
@@ -17,7 +17,7 @@ With those two values set, create a new :class:`TelapiClient`.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
 
@@ -25,7 +25,7 @@ If you'd rather not use environment variables, pass your account credentials dir
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     ACCOUT_SID = "AXXXXXXXXXXXXXXXXX"
     AUTH_TOKEN = "YYYYYYYYYYYYYYYYYY"
@@ -39,7 +39,7 @@ The :class:`TelapiRestClient` gives you access to various list resources. :meth:
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     resources = client.phone_calls.list()
@@ -48,7 +48,7 @@ The :class:`TelapiRestClient` gives you access to various list resources. :meth:
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     resources = client.phone_calls.list(page=3, page_size=25)
@@ -63,7 +63,7 @@ Sometimes you'd like to retrieve all records from a list resource. Instead of ma
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     for number in client.phone_numbers.iter():
@@ -77,7 +77,7 @@ To get an individual instance resource, use :class:`resources.ListResource.get`.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
 

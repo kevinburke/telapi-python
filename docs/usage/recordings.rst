@@ -1,10 +1,10 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 ================
 Recordings
 ================
 
-For more information, see the `Recordings REST Resource <http://www.telapi.com/docs/api/rest/recording>`_ documentation.
+For more information, see the `Recordings REST Resource <http://www.telapi_helper.com/docs/api/rest/recording>`_ documentation.
 
 Audio Formats
 -----------------
@@ -25,7 +25,7 @@ The following code will print out the :attr:`duration` for each :class:`Recordin
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     for recording in client.recordings.list():
@@ -38,7 +38,7 @@ The following will only show recordings made before January 1, 2011.
 .. code-block:: python
 
     from datetime import date
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     for recording in client.recordings.list(before=date(2011,1,1)):
@@ -51,7 +51,7 @@ The :class:`Recordings` resource allows you to delete unnecessary recordings.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     client.recordings.delete("RC123")
@@ -63,7 +63,7 @@ The :class:`Recordings` resource allows you to delete unnecessary recordings. Th
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     recording = client.recordings.get("RC123")

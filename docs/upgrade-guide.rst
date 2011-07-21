@@ -7,7 +7,7 @@ Porting your application from **telapi-python** 2.0 to 3.0 is straightforward. A
 Making API Requests
 ====================
 
-:class:`telapi.Account` has been moved to :class:`telapi.rest.TelapiRestClient`. The rest client offers a greatly improved API; however, the old :meth:`request` method still exists (in a deprecated state). We suggest you migrate your code to use the new API.
+:class:`telapi_helper.Account` has been moved to :class:`telapi_helper.rest.TelapiRestClient`. The rest client offers a greatly improved API; however, the old :meth:`request` method still exists (in a deprecated state). We suggest you migrate your code to use the new API.
 
 Here is how you would place an outgoing call with the older version.
 
@@ -26,12 +26,12 @@ Here is how you would place an outgoing call with the older version.
     CALLER_ID = 'NNNNNNNNNN';
 
     # Create a Telapi REST account object using your account ID and token
-    account = telapi.Account(ACCOUNT_SID, ACCOUNT_TOKEN)
+    account = telapi_helper.Account(ACCOUNT_SID, ACCOUNT_TOKEN)
 
     d = {
         'From' : CALLER_ID,
         'To' : '415-555-1212',
-        'Url' : 'http://demo.telapi.com/welcome',
+        'Url' : 'http://demo.telapi_helper.com/welcome',
     }
 
     print account.request('/%s/Accounts/%s/Calls' % \
@@ -41,7 +41,7 @@ The same code, updated to work with the new version (albeit using deprecated met
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     API_VERSION = '2010-04-01'
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
@@ -53,7 +53,7 @@ The same code, updated to work with the new version (albeit using deprecated met
     d = {
         'From' : CALLER_ID,
         'To' : '415-555-1212',
-        'Url' : 'http://demo.telapi.com/welcome',
+        'Url' : 'http://demo.telapi_helper.com/welcome',
     }
 
     print client.request('/%s/Accounts/%s/Calls' % \
@@ -63,14 +63,14 @@ A final version using the new interface.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
     client = TelapiRestClient(ACCOUNT_SID, ACCOUNT_TOKEN)
     call = client.calls.create(from_='NNNNNNNNNN', to='415-555-1212',
-                               url='http://demo.telapi.com/welcome')
+                               url='http://demo.telapi_helper.com/welcome')
 
     print call
 
@@ -86,8 +86,8 @@ Here is how you would craft a response using the old library.
 
     import telapi
 
-    r = telapi.Response()
-    r.addSay("Hello World", voice=telapi.Say.MAN, language=telapi.Say.FRENCH,
+    r = telapi_helper.Response()
+    r.addSay("Hello World", voice=telapi_helper.Say.MAN, language=telapi_helper.Say.FRENCH,
              loop=10)
     r.addDial("4155551212", timeLimit=45)
     r.addPlay("http://www.mp3.com")
@@ -97,7 +97,7 @@ To use the new version, just change the import at the top.
 
 .. code-block:: python
 
-    from telapi import twiml
+    from telapi_helper import twiml
 
     r = twiml.Response()
     r.addSay("Hello World", voice=twiml.Say.MAN, language=twiml.Say.FRENCH,
@@ -110,7 +110,7 @@ The add methods are deprecated and undocumented, so please change them to the ne
 
 .. code-block:: python
 
-    from telapi import twiml
+    from telapi_helper import twiml
 
     r = twiml.Response()
 
@@ -125,7 +125,7 @@ The add methods are deprecated and undocumented, so please change them to the ne
 Checking Signatures
 =====================
 
-The :class:`Utils` class has been renamed to :class:`TelapiValidation` in the :mod:`telapi.util` module and the :meth:`validateRequest` method has been renamed :meth:`validate`.
+The :class:`Utils` class has been renamed to :class:`TelapiValidation` in the :mod:`telapi_helper.util` module and the :meth:`validateRequest` method has been renamed :meth:`validate`.
 
 A sample using the old version of **telapi-python**.
 
@@ -136,7 +136,7 @@ A sample using the old version of **telapi-python**.
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
-    utils = telapi.Utils(ACCOUNT_SID, ACCOUNT_TOKEN)
+    utils = telapi_helper.Utils(ACCOUNT_SID, ACCOUNT_TOKEN)
 
     url = "http://UUUUUUUUUUUUUUUUUU"
     post_vars = {}
@@ -144,7 +144,7 @@ A sample using the old version of **telapi-python**.
     signature = "SSSSSSSSSSSSSSSSSSSSSSSSSSSS"
 
     if utils.validateRequest(url, post_vars, signature):
-        print "was confirmed to have come from Telapi."
+        print "was confirmed to have come from telapi_helper."
     else:
         print "was NOT VALID.  It might have been spoofed!"
 
@@ -152,7 +152,7 @@ The same sample, converted to use the new version.
 
 .. code-block:: python
 
-    from telapi import util
+    from telapi_helper import util
 
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
@@ -164,6 +164,6 @@ The same sample, converted to use the new version.
     signature = "SSSSSSSSSSSSSSSSSSSSSSSSSSSS"
 
     if utils.validate(url, post_vars, signature):
-        print "was confirmed to have come from Telapi."
+        print "was confirmed to have come from telapi_helper."
     else:
         print "was NOT VALID.  It might have been spoofed!"

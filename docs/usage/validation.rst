@@ -1,4 +1,4 @@
-.. module:: telapi.util
+.. module:: telapi_helper.util
 
 ===========================
 Validate Incoming Requests
@@ -6,9 +6,9 @@ Validate Incoming Requests
 
 Telapi requires that your TwiML-serving web server be open to the public. This is necessary so that Telapi can retrieve TwiML from urls and POST data back to your server.
 
-However, there may be people out there trying to spoof the Telapi service. Luckily, there's an easy way to validate that incoming requests are from Telapi and Telapi alone.
+However, there may be people out there trying to spoof the Telapi service. Luckily, there's an easy way to validate that incoming requests are from telapi_helper and Telapi alone.
 
-An `indepth guide <http://www.telapi.com/docs/security>`_ to our security features can be found in our online documentation.
+An `indepth guide <http://www.telapi_helper.com/docs/security>`_ to our security features can be found in our online documentation.
 
 Before you can validate requests, you'll need four pieces of information
 
@@ -17,15 +17,15 @@ Before you can validate requests, you'll need four pieces of information
 * the requested URL
 * the X-Telapi-Signature header value
 
-Get your Auth Token from the `Telapi User Dashboard <https://www.telapi.com/user/account>`_.
+Get your Auth Token from the `Telapi User Dashboard <https://www.telapi_helper.com/user/account>`_.
 
 Obtaining the other three pieces of information depends on the framework of your choosing. I will assume that you have the POST data as a dictionary and the url and X-Telapi-Signature as strings.
 
-The below example will print out a confirmation message if the request is actually from Telapi.com
+The below example will print out a confirmation message if the request is actually from telapi_helper.com
 
 .. code-block:: python
 
-    from telapi.util import RequestValidator
+    from telapi_helper.util import RequestValidator
 
     AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
@@ -37,7 +37,7 @@ The below example will print out a confirmation message if the request is actual
     signature = "X-Telapi-Signature header value"
 
     if validator.validate(url, post_vars, signature):
-        print "Confirmed to have come from Telapi."
+        print "Confirmed to have come from telapi_helper."
     else:
         print "NOT VALID.  It might have been spoofed!"
 

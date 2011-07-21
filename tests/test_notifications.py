@@ -1,7 +1,7 @@
 from datetime import date
 from mock import patch, Mock
 from nose.tools import raises, assert_equals, assert_true
-from telapi.rest.resources import Notifications
+from telapi_helper.rest.resources import Notifications
 from tools import create_mock_json
 
 BASE_URI = "https://api.telapi.com/2010-04-01/Accounts/AC123"
@@ -12,7 +12,7 @@ RE_SID = "RE19e96a31ed59a5733d2c1c1c69a83a28"
 
 list_resource = Notifications(BASE_URI, AUTH)
 
-@patch("telapi.rest.resources.make_telapi_request")
+@patch("telapi_helper.rest.resources.make_telapi_request")
 def test_paging(mock):
     resp = create_mock_json("tests/resources/notifications_list.json")
     mock.return_value = resp
@@ -23,7 +23,7 @@ def test_paging(mock):
 
     mock.assert_called_with("GET", uri, params=exp_params, auth=AUTH)
 
-@patch("telapi.rest.resources.make_telapi_request")
+@patch("telapi_helper.rest.resources.make_telapi_request")
 def test_get(mock):
     resp = create_mock_json("tests/resources/notifications_instance.json")
     mock.return_value = resp
@@ -33,7 +33,7 @@ def test_get(mock):
 
     mock.assert_called_with("GET", uri, auth=AUTH)
 
-@patch("telapi.rest.resources.make_telapi_request")
+@patch("telapi_helper.rest.resources.make_telapi_request")
 def test_get(mock):
     resp = create_mock_json("tests/resources/notifications_instance.json")
     resp.status_code = 204

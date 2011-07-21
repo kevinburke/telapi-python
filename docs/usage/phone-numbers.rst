@@ -1,4 +1,4 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 =================
 Phone Numbers
@@ -6,7 +6,7 @@ Phone Numbers
 
 With Telapi you can search and buy real phones numbers, just using the API.
 
-For more information, see the `IncomingPhoneNumbers REST Resource <http://www.telapi.com/docs/api/rest/incoming-phone-numbers>`_ documentation.
+For more information, see the `IncomingPhoneNumbers REST Resource <http://www.telapi_helper.com/docs/api/rest/incoming-phone-numbers>`_ documentation.
 
 
 Searching and Buying a Number
@@ -16,7 +16,7 @@ Finding numbers to buy couldn't be easier. We first search for a number in area 
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     numbers = client.phone_numbers.search(area_code=530)
@@ -51,7 +51,7 @@ You can use the ''*'' wildcard to match any character. The following example fin
 
     numbers = client.phone_numbers.search(contains="D*D")
 
-:meth:`PhoneNumbers.search` method has plenty of other options to augment your search. The `AvailablePhoneNumbers REST Resource <http://www.telapi.com/docs/api/rest/available-phone-numbers>`_ documentation also documents the various search options.
+:meth:`PhoneNumbers.search` method has plenty of other options to augment your search. The `AvailablePhoneNumbers REST Resource <http://www.telapi_helper.com/docs/api/rest/available-phone-numbers>`_ documentation also documents the various search options.
 
 
 Buying a Number
@@ -61,7 +61,7 @@ If you've found a phone number you want, you can purchase the number
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     number = client.phone_numbers.purchase("+15305431234")
@@ -76,7 +76,7 @@ An :class:`Application` encapsulates all necessary URLs for use with phone numbe
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     phone_sid = "PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
@@ -91,7 +91,7 @@ Telapi Adding a new phone number to your validated numbers is quick and easy
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     response = client.caller_ids.validate("+9876543212")

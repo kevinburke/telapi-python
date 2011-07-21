@@ -1,4 +1,4 @@
-.. module:: telapi.rest
+.. module:: telapi_helper.rest
 
 ===========
 Accounts
@@ -6,7 +6,7 @@ Accounts
 
 Managing Telapi accounts is straightforward. Update your own account information or create and manage multiple subaccounts.
 
-For more information, see the `Account REST Resource <http://www.telapi.com/docs/api/rest/account>`_ documentation.
+For more information, see the `Account REST Resource <http://www.telapi_helper.com/docs/api/rest/account>`_ documentation.
 
 
 Updating Account Information
@@ -16,7 +16,7 @@ Use the :meth:`Account.update` to modify one of your accounts. Right now the onl
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     account = conn.accounts.get()
@@ -29,7 +29,7 @@ Subaccounts are easy to make.
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     subaccount = conn.accounts.create(name="My Awesome SubAccount")
@@ -41,7 +41,7 @@ Say you have a subaccount for Client X with an account sid `AC123`
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
 

@@ -6,10 +6,10 @@ from datetime import datetime
 from datetime import date
 from mock import patch
 from mock import Mock
-from telapi import TelapiException
-from telapi import TelapiRestException
-from telapi.rest import TelapiRestClient as TelapiClient
-from telapi.rest.resources import *
+from telapi_helper import TelapiException
+from telapi_helper import TelapiRestException
+from telapi_helper.rest import TelapiRestClient as TelapiClient
+from telapi_helper.rest.resources import *
 
 ACCOUNT_SID = "AC111111111"
 AUTH_TOKEN  = "AUTH_TOKEN"

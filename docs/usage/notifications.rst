@@ -1,10 +1,10 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 ====================
 Notifications
 ====================
 
-For more information, see the `Notifications REST Resource <http://www.telapi.com/docs/api/rest/notification>`_ documentation.
+For more information, see the `Notifications REST Resource <http://www.telapi_helper.com/docs/api/rest/notification>`_ documentation.
 
 Listing Your Notifications
 ----------------------------
@@ -13,7 +13,7 @@ The following code will print out additional information about each of your curr
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     for notification in client.notifications.list():
@@ -23,7 +23,7 @@ You can filter transcriptions by :attr:`log` and :attr:`message_date`. The :attr
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
 
@@ -41,7 +41,7 @@ Your account can sometimes generate an inordinate amount of :class:`Notification
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
     client.notifications.delete("NO123")

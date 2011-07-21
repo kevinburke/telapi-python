@@ -1,4 +1,4 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 =================
 Applications
@@ -6,7 +6,7 @@ Applications
 
 An application inside of Telapi is just a set of URLs and other configuration data that tells Telapi how to behave when one of your Telapi numbers receives a call or SMS message.
 
-For more information, see the `Application REST Resource <http://www.telapi.com/docs/api/rest/applications>`_ documentation.
+For more information, see the `Application REST Resource <http://www.telapi_helper.com/docs/api/rest/applications>`_ documentation.
 
 Listing Your Applications
 --------------------------
@@ -15,7 +15,7 @@ The following code will print out the :attr:`friendly_name` for each :class:`App
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     for app in conn.applications.list():
@@ -29,7 +29,7 @@ You can filter applications by FriendlyName
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     for app in conn.applications.list(friendly_name="FOO"):
@@ -42,7 +42,7 @@ When creating an application, no fields are required. We create an application w
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     application = conn.applications.create(friendly_name="My New App")
@@ -53,7 +53,7 @@ Updating an Application
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     url = "http://www.example.com/twiml.xml"
@@ -65,7 +65,7 @@ Deleting an Application
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
     conn.applications.delete(app_sid)

@@ -1,10 +1,10 @@
-.. module:: telapi.rest.resources
+.. module:: telapi_helper.rest.resources
 
 ============
 SMS Messages
 ============
 
-For more information, see the `SMS Message REST Resource <http://www.telapi.com/docs/api/rest/sms>`_ documentation.
+For more information, see the `SMS Message REST Resource <http://www.telapi_helper.com/docs/api/rest/sms>`_ documentation.
 
 Sending a Text Message
 ----------------------
@@ -13,7 +13,7 @@ Send a text message in only a few lines of code
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
 
@@ -24,7 +24,7 @@ Send a text message in only a few lines of code
 
 .. note:: The message body must be less than 160 characters in length
 
-If you want to send a message from a `short code <http://www.telapi.com/api/sms/short-codes>`_ on Telapi, just set :attr:`from_` to your short code's number.
+If you want to send a message from a `short code <http://www.telapi_helper.com/api/sms/short-codes>`_ on Telapi, just set :attr:`from_` to your short code's number.
 
 
 Retrieving Sent Messages
@@ -32,7 +32,7 @@ Retrieving Sent Messages
 
 .. code-block:: python
 
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
 
@@ -48,7 +48,7 @@ The :meth:`list` methods supports filtering on :attr:`to`, :attr:`from_`, and :a
 .. code-block:: python
 
     from datetime import date
-    from telapi.rest import TelapiRestClient
+    from telapi_helper.rest import TelapiRestClient
 
     client = TelapiRestClient()
 
@@ -61,5 +61,5 @@ The :meth:`list` methods supports filtering on :attr:`to`, :attr:`from_`, and :a
 
 Short Codes
 --------------
-Not supported just yet, as `Telapi Short Code <http://www.telapi.com/sms/short-codes>`_
+Not supported just yet, as `Telapi Short Code <http://www.telapi_helper.com/sms/short-codes>`_
 is still in beta. You can sign up to be notified when short codes launch.

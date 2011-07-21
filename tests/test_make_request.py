@@ -9,9 +9,9 @@ from nose.tools import assert_equals
 from nose.tools import raises
 from mock import patch
 from mock import Mock
-from telapi import TelapiRestException
-from telapi.rest.resources import make_request
-from telapi.rest.resources import make_telapi_request
+from telapi_helper import TelapiRestException
+from telapi_helper.rest.resources import make_request
+from telapi_helper.rest.resources import make_telapi_request
 
 get_headers = {
     "User-Agent": "telapi-python",
@@ -42,7 +42,7 @@ def test_resp_uri():
     resp = make_request("GET", "http://httpbin.org/get")
     assert_equals(resp.url, "http://httpbin.org/get")
 
-@patch('telapi.rest.resources.make_request')
+@patch('telapi_helper.rest.resources.make_request')
 def test_make_telapi_request_headers(mock):
     url = "http://random/url"
     make_telapi_request("POST", url)
@@ -50,7 +50,7 @@ def test_make_telapi_request_headers(mock):
                             headers=post_headers)
 
 @raises(TelapiRestException)
-@patch('telapi.rest.resources.make_request')
+@patch('telapi_helper.rest.resources.make_request')
 def test_make_telapi_request_bad_data(mock):
     resp = Mock()
     resp.ok = False

@@ -5,8 +5,8 @@ import re
 import os
 import urllib
 
-from telapi import TelapiException
-from telapi import TelapiRestException
+from telapi_helper import TelapiException
+from telapi_helper import TelapiRestException
 from urllib import urlencode
 from urlparse import urlparse
 
@@ -23,7 +23,7 @@ except ImportError:
 try:
     import httplib2
 except ImportError:
-    from telapi.contrib import httplib2
+    from telapi_helper.contrib import httplib2
 
 
 def transform_params(p):
@@ -145,7 +145,7 @@ def make_request(method, url,
 
 def make_telapi_request(method, uri, **kwargs):
     """
-    Make a request to Telapi. Throws an error
+    Make a request to telapi_helper. Throws an error
     """
     headers = kwargs.get("headers", {})
     headers["User-Agent"] = "telapi-python"   # Add user aggent string
