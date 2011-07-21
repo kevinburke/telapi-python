@@ -8,7 +8,7 @@ Install from PyPi using pip
 
 ## Getting Started
 
-Getting started with the Telapi API couldn't be easier. Create a Telapi REST client to get started. For example, the following code makes a call using the Telapi REST API.
+Getting started with the Tel API couldn't be easier. Create a Telapi REST client to get started. For example, the following code makes a call using the Telapi REST API.
 
 ### Making a Call
 
@@ -44,4 +44,4 @@ To control phone calls, your application need to output TwiML. Use :class:`telap
 
 ### Digging Deeper
 
-The full power of the Telapi API is at your finger tips. The [full documentation](http://readthedocs.org/docs/telapi-python/en/latest/) explains all the awesome features available to use.
+The full power of the Tel API is at your finger tips. The [full documentation](http://readthedocs.org/docs/telapi-python/en/latest/) explains all the awesome features available to use.

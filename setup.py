@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 setup(
     name = "telapi",
     version = "3.0.1",
-    description = "Telapi API client and TwiML generator",
+    description = "Tel API client and TwiML generator",
     author = "Telapi",
     author_email = "help@telapi.com",
     url = "http://github.com/telapi/telapi-python/",

@@ -37,7 +37,7 @@ def transform_params(p):
 
 def parse_date(d):
     """
-    Return a string representation of a date that the Telapi API understands
+    Return a string representation of a date that the Tel API understands
     Format is YYYY-MM-DD. Returns None if d is not a string, datetime, or date
     """
     if isinstance(d, datetime.datetime):

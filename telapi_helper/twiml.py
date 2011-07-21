@@ -69,7 +69,7 @@ class Verb(object):
 class Response(Verb):
     """Telapi response object."""
     def __init__(self, **kwargs):
-        """Version: Telapi API version e.g. 2008-08-01 """
+        """Version: Tel API version e.g. 2008-08-01 """
 
         Verb.__init__(self, **kwargs)
         self.nestables = [

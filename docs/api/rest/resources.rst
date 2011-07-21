@@ -759,7 +759,7 @@ SMS Messages
 
    .. attribute:: api_version
 
-      The version of the Telapi API used to process the SMS message.
+      The version of the Tel API used to process the SMS message.
 
    .. attribute:: uri
 
