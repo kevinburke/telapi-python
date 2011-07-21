@@ -1,12 +1,12 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 =================
 Phone Numbers
 =================
 
-With Twilio you can search and buy real phones numbers, just using the API.
+With Telapi you can search and buy real phones numbers, just using the API.
 
-For more information, see the `IncomingPhoneNumbers REST Resource <http://www.twilio.com/docs/api/rest/incoming-phone-numbers>`_ documentation.
+For more information, see the `IncomingPhoneNumbers REST Resource <http://www.telapi.com/docs/api/rest/incoming-phone-numbers>`_ documentation.
 
 
 Searching and Buying a Number
@@ -16,9 +16,9 @@ Finding numbers to buy couldn't be easier. We first search for a number in area 
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     numbers = client.phone_numbers.search(area_code=530)
 
     if len(numbers) > 0:
@@ -51,7 +51,7 @@ You can use the ''*'' wildcard to match any character. The following example fin
 
     numbers = client.phone_numbers.search(contains="D*D")
 
-:meth:`PhoneNumbers.search` method has plenty of other options to augment your search. The `AvailablePhoneNumbers REST Resource <http://www.twilio.com/docs/api/rest/available-phone-numbers>`_ documentation also documents the various search options.
+:meth:`PhoneNumbers.search` method has plenty of other options to augment your search. The `AvailablePhoneNumbers REST Resource <http://www.telapi.com/docs/api/rest/available-phone-numbers>`_ documentation also documents the various search options.
 
 
 Buying a Number
@@ -61,9 +61,9 @@ If you've found a phone number you want, you can purchase the number
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     number = client.phone_numbers.purchase("+15305431234")
 
 However, it's easier to purchase numbers after finding them using search (as shown in the first example).
@@ -76,28 +76,28 @@ An :class:`Application` encapsulates all necessary URLs for use with phone numbe
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
     phone_sid = "PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     number = client.phone_numbers.update(phone_sid, application="AP123")
 
 See :doc:`/usage/applications` for instructions on updating and maintaining Applications.
 
 Validate Caller Id
 -----------------------
-Twilio Adding a new phone number to your validated numbers is quick and easy
+Telapi Adding a new phone number to your validated numbers is quick and easy
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     response = client.caller_ids.validate("+9876543212")
     print response["validation_code"]
 
-Twilio will call the provided number and wait for the  validation code to be entered.
+Telapi will call the provided number and wait for the  validation code to be entered.
 
 
 

@@ -1,11 +1,11 @@
 import unittest
 from datetime import datetime
 from datetime import date
-from twilio.rest.resources import parse_date
-from twilio.rest.resources import transform_params
-from twilio.rest.resources import convert_keys
-from twilio.rest.resources import convert_case
-from twilio.rest.resources import normalize_dates
+from telapi.rest.resources import parse_date
+from telapi.rest.resources import transform_params
+from telapi.rest.resources import convert_keys
+from telapi.rest.resources import convert_case
+from telapi.rest.resources import normalize_dates
 
 
 class CoreTest(unittest.TestCase):

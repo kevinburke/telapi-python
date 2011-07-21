@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import re
-import twilio
+import telapi
 import unittest
-from twilio import twiml
-from twilio.twiml import TwimlException
-from twilio.twiml import Response
+from telapi import twiml
+from telapi.twiml import TwimlException
+from telapi.twiml import Response
 
-class TwilioTest(unittest.TestCase):
+class TelapiTest(unittest.TestCase):
     def strip(self, xml):
         return str(xml)
 
@@ -23,7 +23,7 @@ class TwilioTest(unittest.TestCase):
         self.assertRaises(TwimlException, verb.append, twiml.Sms(""))
         self.assertRaises(TwimlException, verb.append, twiml.Pause())
 
-class TestResponse(TwilioTest):
+class TestResponse(TelapiTest):
 
     def testEmptyResponse(self):
         r = Response()
@@ -33,7 +33,7 @@ class TestResponse(TwilioTest):
         r = Response(foo="bar")
         self.assertEquals(self.strip(r), '<?xml version="1.0" encoding="utf-8"?><Response foo="bar" />')
 
-class TestSay(TwilioTest):
+class TestSay(TelapiTest):
 
     def testEmptySay(self):
         """should be a say with no text"""
@@ -86,7 +86,7 @@ class TestSay(TwilioTest):
         """ should raise exceptions for wrong appending"""
         self.improperAppend(twiml.Say(""))
 
-class TestPlay(TwilioTest):
+class TestPlay(TelapiTest):
 
     def testEmptyPlay(self):
         """should play hello monkey"""
@@ -126,7 +126,7 @@ class TestPlay(TwilioTest):
         """ should raise exceptions for wrong appending"""
         self.improperAppend(twiml.Play(""))
 
-class TestRecord(TwilioTest):
+class TestRecord(TelapiTest):
 
     def testRecordEmpty(self):
         """should record"""
@@ -173,7 +173,7 @@ class TestRecord(TwilioTest):
         """ should raise exceptions for wrong appending"""
         self.improperAppend(twiml.Record())
 
-class TestRedirect(TwilioTest):
+class TestRedirect(TelapiTest):
 
     def testRedirectEmpty(self):
         r = Response()
@@ -204,7 +204,7 @@ class TestRedirect(TwilioTest):
         self.improperAppend(twiml.Redirect())
 
 
-class TestHangup(TwilioTest):
+class TestHangup(TelapiTest):
 
     def testHangup(self):
         """convenience: should Hangup to a url via POST"""
@@ -226,7 +226,7 @@ class TestHangup(TwilioTest):
         self.improperAppend(twiml.Hangup())
 
 
-class TestReject(TwilioTest):
+class TestReject(TelapiTest):
 
     def testReject(self):
         """should be a Reject with default reason"""
@@ -246,7 +246,7 @@ class TestReject(TwilioTest):
         """ should raise exceptions for wrong appending"""
         self.improperAppend(twiml.Reject())
 
-class TestSms(TwilioTest):
+class TestSms(TelapiTest):
 
     def testEmpty(self):
         """Test empty sms verb"""
@@ -288,7 +288,7 @@ class TestSms(TwilioTest):
         """ should raise exceptions for wrong appending"""
         self.improperAppend(twiml.Sms("Hello"))
 
-class TestDial(TwilioTest):
+class TestDial(TelapiTest):
 
     def testDial(self):
         """ should redirect the call"""
@@ -350,7 +350,7 @@ class TestDial(TwilioTest):
         self.improperAppend(twiml.Conference("Hello"))
 
 
-class TestGather(TwilioTest):
+class TestGather(TelapiTest):
 
     def testEmpty(self):
         """ a gather with nothing inside"""

@@ -1,4 +1,4 @@
-from twilio.rest import TwilioRestClient
+from telapi.rest import TelapiRestClient
 
 def test_client_init():
-    twilio = TwilioRestClient("AC123", "SECRET")
+    telapi = TelapiRestClient("AC123", "SECRET")

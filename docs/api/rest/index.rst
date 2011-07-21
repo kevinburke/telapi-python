@@ -1,10 +1,10 @@
-.. module:: twilio.rest
+.. module:: telapi.rest
 
 ==============================
-:mod:`twilio.rest`
+:mod:`telapi.rest`
 ==============================
 
-.. autoclass:: TwilioRestClient
+.. autoclass:: TelapiRestClient
    :members:
    :inherited-members:
 

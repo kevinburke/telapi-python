@@ -1,19 +1,19 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 ==============================
 Conferences and Participants
 ==============================
 
-For more information, see the `Conference REST Resource <http://www.twilio.com/docs/api/rest/conference>`_ and `Participant REST Resource <http://www.twilio.com/docs/api/rest/conference>`_ documentation.
+For more information, see the `Conference REST Resource <http://www.telapi.com/docs/api/rest/conference>`_ and `Participant REST Resource <http://www.telapi.com/docs/api/rest/conference>`_ documentation.
 
 Listing Conferences
 -----------------------
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     conferences = client.conferences.list()
 
     for conference in conferences:
@@ -26,9 +26,9 @@ The :meth:`Conferences.list` method supports filtering on :attr:`status`, :attr:
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     conferences = client.conferences.list(status="active")
 
     for conference in conferences:
@@ -42,9 +42,9 @@ Each :class:`Conference` has a :attr:`participants` instance which represents al
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     conference = client.conferences.get("CF123")
 
     for participant in conference.participants.list():
@@ -63,9 +63,9 @@ Participants can be either muted or kicked out of the conference. The following 
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     participants = client.participants("CF123").list()
 
     if len(participants) == 0:

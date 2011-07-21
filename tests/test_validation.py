@@ -1,5 +1,5 @@
 import unittest
-from twilio.util import RequestValidator
+from telapi.util import RequestValidator
 
 
 class ValidationTest(unittest.TestCase):

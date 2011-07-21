@@ -1,11 +1,11 @@
 __version_info__ = ('3', '0', '1')
 __version__ = '.'.join(__version_info__)
 
-class TwilioException(Exception):
+class TelapiException(Exception):
     pass
 
 
-class TwilioRestException(TwilioException):
+class TelapiRestException(TelapiException):
 
     def __init__(self, status, uri, msg=""):
         self.uri = uri

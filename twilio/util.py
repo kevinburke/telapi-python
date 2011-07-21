@@ -10,8 +10,8 @@ class RequestValidator(object):
     def compute_signature(self, uri, params):
         """Compute the signature for a given request
 
-        :param uri: full URI that Twilio requested on your server
-        :param params: post vars that Twilio sent with the request
+        :param uri: full URI that Telapi requested on your server
+        :param params: post vars that Telapi sent with the request
         :param auth: tuple with (account_sid, token)
 
         Returns the computed signature
@@ -26,11 +26,11 @@ class RequestValidator(object):
         return computed.strip()
 
     def validate(self, uri, params, signature):
-        """Validate a request from Twilio
+        """Validate a request from Telapi
 
-        :param uri: full URI that Twilio requested on your server
-        :param params: post vars that Twilio sent with the request
-        :param signature: expexcted signature in HTTP X-Twilio-Signature header
+        :param uri: full URI that Telapi requested on your server
+        :param params: post vars that Telapi sent with the request
+        :param signature: expexcted signature in HTTP X-Telapi-Signature header
         :param auth: tuple with (account_sid, token)
 
         returns true if the request passes validation, false if not

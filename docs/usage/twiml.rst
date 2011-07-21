@@ -1,6 +1,6 @@
 .. _usage-twiml:
 
-.. module:: twilio.twiml
+.. module:: telapi.twiml
 
 ==============
 TwiML Creation
@@ -10,7 +10,7 @@ TwiML creation begins with the :class:`Response` verb. Each successive verb is c
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
     r.say("Hello")
@@ -25,7 +25,7 @@ The verb methods (outlined in the complete reference) take the body (only text) 
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
     r.play("monkey.mp3", loop=5)
@@ -40,7 +40,7 @@ Python 2.6+ added the :const:`with` statement for context management. Using :con
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
     r.say("hello")
@@ -62,7 +62,7 @@ If you don't want the XML declaration in your output, use the :meth:`toxml` meth
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
     r.say("hello")

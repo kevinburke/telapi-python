@@ -1,55 +1,55 @@
 ====================
-:mod:`twilio.twiml`
+:mod:`telapi.twiml`
 ====================
 
-.. automodule:: twilio.twiml
+.. automodule:: telapi.twiml
 
-.. autoclass:: twilio.twiml.Response
+.. autoclass:: telapi.twiml.Response
    :members:
 
 Primary Verbs
 ~~~~~~~~~~~~~
 
-.. autoclass:: twilio.twiml.Say
+.. autoclass:: telapi.twiml.Say
    :members:
 
-.. autoclass:: twilio.twiml.Play
+.. autoclass:: telapi.twiml.Play
    :members:
 
-.. autoclass:: twilio.twiml.Dial
+.. autoclass:: telapi.twiml.Dial
    :members:
 
-.. autoclass:: twilio.twiml.Gather
+.. autoclass:: telapi.twiml.Gather
    :members:
 
-.. autoclass:: twilio.twiml.Record
+.. autoclass:: telapi.twiml.Record
    :members:
 
 Seconday Verbs
 ~~~~~~~~~~~~~~
 
-.. autoclass:: twilio.twiml.Hangup
+.. autoclass:: telapi.twiml.Hangup
    :members:
 
-.. autoclass:: twilio.twiml.Redirect
+.. autoclass:: telapi.twiml.Redirect
    :members:
 
-.. autoclass:: twilio.twiml.Reject
+.. autoclass:: telapi.twiml.Reject
    :members:
 
-.. autoclass:: twilio.twiml.Pause
+.. autoclass:: telapi.twiml.Pause
    :members:
 
-.. autoclass:: twilio.twiml.Sms
+.. autoclass:: telapi.twiml.Sms
    :members:
 
 Nouns
 ~~~~~~
 
-.. autoclass:: twilio.twiml.Conference
+.. autoclass:: telapi.twiml.Conference
    :members:
 
-.. autoclass:: twilio.twiml.Number
+.. autoclass:: telapi.twiml.Number
    :members:
 
 Constants

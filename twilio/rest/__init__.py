@@ -1,26 +1,26 @@
 import logging
 import os
-from twilio import TwilioException
-from twilio.rest.resources import make_request
-from twilio.rest.resources import Accounts
-from twilio.rest.resources import Applications
-from twilio.rest.resources import Calls
-from twilio.rest.resources import CallerIds
-from twilio.rest.resources import Notifications
-from twilio.rest.resources import Recordings
-from twilio.rest.resources import Transcriptions
-from twilio.rest.resources import Sms
-from twilio.rest.resources import Participants
-from twilio.rest.resources import PhoneNumbers
-from twilio.rest.resources import Conferences
-from twilio.rest.resources import Sandboxes
+from telapi import TelapiException
+from telapi.rest.resources import make_request
+from telapi.rest.resources import Accounts
+from telapi.rest.resources import Applications
+from telapi.rest.resources import Calls
+from telapi.rest.resources import CallerIds
+from telapi.rest.resources import Notifications
+from telapi.rest.resources import Recordings
+from telapi.rest.resources import Transcriptions
+from telapi.rest.resources import Sms
+from telapi.rest.resources import Participants
+from telapi.rest.resources import PhoneNumbers
+from telapi.rest.resources import Conferences
+from telapi.rest.resources import Sandboxes
 from urllib import urlencode
 from urlparse import urljoin
 
 
 def find_credentials():
     """
-    Look in the current environment for Twilio credentails
+    Look in the current environment for Telapi credentails
     """
     try:
         account = os.environ["TWILIO_ACCOUNT_SID"]
@@ -30,13 +30,13 @@ def find_credentials():
         return None, None
 
 
-class TwilioRestClient(object):
+class TelapiRestClient(object):
     """
-    A client for accessing the Twilio REST API
+    A client for accessing the Telapi REST API
     """
 
     def request(self, path, method=None, vars=None):
-        """sends a request and gets a response from the Twilio REST API
+        """sends a request and gets a response from the Telapi REST API
 
         .. deprecated:: 3.0
 
@@ -44,12 +44,12 @@ class TwilioRestClient(object):
         :param url: the HTTP method to use, defaults to POST
         :param vars: for POST or PUT, a dict of data to send
 
-        :returns: Twilio response in XML or raises an exception on error
+        :returns: Telapi response in XML or raises an exception on error
 
         This method is only included for backwards compatability reasons.
         It will be removed in a future version
         """
-        logging.warning(":meth:`TwilioRestClient.request` is deprecated and "
+        logging.warning(":meth:`TelapiRestClient.request` is deprecated and "
                         "will be removed in a future version")
 
         vars = vars or {}
@@ -73,7 +73,7 @@ class TwilioRestClient(object):
             data = vars
 
         headers = {
-            "User-Agent": "twilio-python",
+            "User-Agent": "telapi-python",
             }
 
         resp = make_request(method, uri, auth=self.auth, data=data,
@@ -81,17 +81,17 @@ class TwilioRestClient(object):
 
         return resp.content
 
-    def __init__(self, account=None, token=None, base="https://api.twilio.com",
+    def __init__(self, account=None, token=None, base="https://api.telapi.com",
                  version="2010-04-01", client=None):
         """
-        Create a Twilio REST API client.
+        Create a Telapi REST API client.
         """
 
         # Get account credentials
         if not account or not token:
             account, token = find_credentials()
             if not account or not token:
-                raise TwilioException("Could not find account credentials")
+                raise TelapiException("Could not find account credentials")
 
         auth = (account, token)
         version_uri = "%s/%s" % (base, version)

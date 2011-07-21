@@ -1,12 +1,12 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 =================
 Applications
 =================
 
-An application inside of Twilio is just a set of URLs and other configuration data that tells Twilio how to behave when one of your Twilio numbers receives a call or SMS message.
+An application inside of Telapi is just a set of URLs and other configuration data that tells Telapi how to behave when one of your Telapi numbers receives a call or SMS message.
 
-For more information, see the `Application REST Resource <http://www.twilio.com/docs/api/rest/applications>`_ documentation.
+For more information, see the `Application REST Resource <http://www.telapi.com/docs/api/rest/applications>`_ documentation.
 
 Listing Your Applications
 --------------------------
@@ -15,9 +15,9 @@ The following code will print out the :attr:`friendly_name` for each :class:`App
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     for app in conn.applications.list():
         print app.friendly_name
 
@@ -29,9 +29,9 @@ You can filter applications by FriendlyName
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     for app in conn.applications.list(friendly_name="FOO"):
         print app.sid
 
@@ -42,9 +42,9 @@ When creating an application, no fields are required. We create an application w
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     application = conn.applications.create(friendly_name="My New App")
 
 
@@ -53,9 +53,9 @@ Updating an Application
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     url = "http://www.example.com/twiml.xml"
     application = conn.applications.update(app_sid, voice_url=url)
 
@@ -65,7 +65,7 @@ Deleting an Application
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     conn.applications.delete(app_sid)

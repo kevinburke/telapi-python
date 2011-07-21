@@ -6,23 +6,23 @@ from datetime import datetime
 from datetime import date
 from mock import patch
 from mock import Mock
-from twilio import TwilioException
-from twilio import TwilioRestException
-from twilio.rest import TwilioRestClient as TwilioClient
-from twilio.rest.resources import *
+from telapi import TelapiException
+from telapi import TelapiRestException
+from telapi.rest import TelapiRestClient as TelapiClient
+from telapi.rest.resources import *
 
 ACCOUNT_SID = "AC111111111"
 AUTH_TOKEN  = "AUTH_TOKEN"
-BASE_URI    = "https://api.twilio.com/2010-04-01/"
+BASE_URI    = "https://api.telapi.com/2010-04-01/"
 ACCOUNT_URI = "{0}Accounts/{1}/".format(BASE_URI, ACCOUNT_SID)
 
 DEFAULT_HEADERS = {
-    'User-Agent': 'twilio-python/3.0.0',
+    'User-Agent': 'telapi-python/3.0.0',
     }
 
 FORM_CONTENT_TYPE = {
     'Content-type': 'application/x-www-form-urlencoded',
-    'User-Agent': 'twilio-python/3.0.0',
+    'User-Agent': 'telapi-python/3.0.0',
     }
 
 def create_mock_request(status=200, content="{}"):
@@ -36,7 +36,7 @@ def create_mock_request(status=200, content="{}"):
 class GeneralResourceTest(unittest.TestCase):
 
     def setUp(self):
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
 
     def mock_request(self, status=200, content="{}"):
         request = Mock()
@@ -91,10 +91,10 @@ class InstanceResourceTest(GeneralResourceTest):
 class ClientTest(unittest.TestCase):
 
     def setUp(self):
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
 
     def test_creation(self):
-        c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
         self.assertEquals(c.account_sid, ACCOUNT_SID)
         self.assertEquals(c.auth_token, AUTH_TOKEN)
 
@@ -105,7 +105,7 @@ class ClientTest(unittest.TestCase):
             }
 
         with patch.dict(os.environ, creds):
-            c = TwilioClient()
+            c = TelapiClient()
 
         self.assertEquals(c.account_sid, ACCOUNT_SID)
         self.assertEquals(c.auth_token, AUTH_TOKEN)
@@ -113,14 +113,14 @@ class ClientTest(unittest.TestCase):
     def test_credential_adding(self):
         client = Mock()
         client.add_credentials = Mock()
-        c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN, client=client)
+        c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN, client=client)
 
         client.add_credentials.assert_called_with(ACCOUNT_SID, AUTH_TOKEN)
 
     def test_creation_fails(self):
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             with patch.dict(os.environ, {}, clear=True):
-                c = TwilioClient()
+                c = TelapiClient()
 
     def test_notificaitons_uri(self):
         uri = "{0}Notifications".format(ACCOUNT_URI)
@@ -133,26 +133,26 @@ class ResourceTest(unittest.TestCase):
         mock_http, request, self.resp = Mock(), Mock(), Mock()
         request.return_value = self.resp, ""
         mock_http.request = request
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN,
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN,
                               client=mock_http)
 
     def test_not_found(self):
         self.resp.status = 404
         self.resp.description = "NOT FOUND"
-        with self.assertRaises(TwilioRestException) as cm:
+        with self.assertRaises(TelapiRestException) as cm:
             self.c.accounts.create(friendly_name="MyNewAccount")
 
     def test_auth_required(self):
         self.resp.status = 401
         self.resp.description = "AUTH REQUIRED"
-        with self.assertRaises(TwilioRestException) as cm:
+        with self.assertRaises(TelapiRestException) as cm:
             self.c.accounts.create(friendly_name="MyNewAccount")
 
 class AccountsTest(ListResourceTest):
 
     def setUp(self):
         self.mock_http = Mock()
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN,
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN,
                               client=self.mock_http)
 
     def test_paging(self):
@@ -192,7 +192,7 @@ class AccountsTest(ListResourceTest):
         request = create_mock_request()
         self.mock_http.request = request
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.accounts.get(account_sid)
 
         request.assert_called_with(expected_uri, method="GET",
@@ -205,7 +205,7 @@ class AccountsTest(ListResourceTest):
         request = create_mock_request()
         self.mock_http.request = request
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.accounts.list()
 
         request.assert_called_with(expected_uri, method="GET",
@@ -218,7 +218,7 @@ class AccountsTest(ListResourceTest):
         request = create_mock_request()
         self.mock_http.request = request
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.accounts.list(friendly_name="You", status="active")
 
         request.assert_called_with(expected_uri, method="GET",
@@ -230,7 +230,7 @@ class AccountsTest(ListResourceTest):
 
         request = create_mock_request()
         self.mock_http.request = request
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.accounts.update(account_sid, friendly_name="You")
 
         body = "FriendlyName=You"
@@ -246,7 +246,7 @@ class AccountsTest(ListResourceTest):
         self.mock_http.request = request
         a = Account(self.c.accounts, base_uri, {"sid": account_sid})
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = a.update(friendly_name="You")
 
         body = "FriendlyName=You"
@@ -262,7 +262,7 @@ class AccountsTest(ListResourceTest):
 
         request = create_mock_request()
         self.mock_http.request = request
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.accounts.close(account_sid)
 
         body = "Status=closed"
@@ -306,7 +306,7 @@ class AccountTest(unittest.TestCase):
 
     def setUp(self):
         self.mock_http = Mock()
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
 
         self.account_sid = "AC4bf2dafb92341f7caf8650403e422d23"
         self.base_uri = "{0}Accounts".format(BASE_URI)
@@ -355,7 +355,7 @@ class CallsTest(ListResourceTest):
         e_uri = "{0}Accounts/{1}/Calls/{2}.json".format(BASE_URI,
                                                         ACCOUNT_SID, csid)
         request = self.mock_request()
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.calls.get(csid)
 
         request.assert_called_with(e_uri, method="GET",
@@ -366,7 +366,7 @@ class CallsTest(ListResourceTest):
         e_uri = "{0}Accounts/{1}/Calls.json?{2}".format(BASE_URI, ACCOUNT_SID,
                                                         query)
         request = self.mock_request()
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.calls.list(ended=date(2009,12,12),
                                   started_after="2009-01-01",
                                   ended_before=datetime.datetime(2009,1,31))
@@ -383,7 +383,7 @@ class CallsTest(ListResourceTest):
                 })
         request = self.mock_request()
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.calls.create(to=5551231234, from_=5551231234,
                                     url="http://www.google.com")
 
@@ -396,7 +396,7 @@ class CallsTest(ListResourceTest):
         body = urllib.urlencode({"Status": Call.CANCELED})
         request = self.mock_request()
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.calls.hangup(sid)
 
         request.assert_called_with(e_uri, method="POST", body=body,
@@ -408,7 +408,7 @@ class CallsTest(ListResourceTest):
         body = urllib.urlencode({"Url": "http://www.google.com", "Method": "POST"})
         request = self.mock_request()
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.calls.route(sid, "http://www.google.com")
 
         request.assert_called_with(e_uri, method="POST", body=body,
@@ -416,7 +416,7 @@ class CallsTest(ListResourceTest):
 class CallTest(unittest.TestCase):
 
     def setUp(self):
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
         self.call_sid = "CA123123"
         self.base_uri = "{0}Accounts/{1}/Calls".format(BASE_URI, ACCOUNT_SID)
         self.call_uri = "{0}/{1}.json".format(self.base_uri, self.call_sid)
@@ -481,7 +481,7 @@ class CallerIdsTest(ListResourceTest):
         e_uri = "{}OutgoingCallerIds.json?{}".format(ACCOUNT_URI,body)
         request = self.mock_request()
 
-        with self.assertRaises(TwilioException) as cm:
+        with self.assertRaises(TelapiException) as cm:
             c = self.c.caller_ids.list(phone_number=5551231234)
 
         request.assert_called_with(e_uri, method="GET",
@@ -506,7 +506,7 @@ class CallerIdsTest(ListResourceTest):
 class CallerIdTest(InstanceResourceTest):
 
     def setUp(self):
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
         self.sid = "CA123123"
         self.base_uri = "{0}Accounts/{1}/OutgoingCallerIds".format(BASE_URI, ACCOUNT_SID)
         self.uri = "{0}/{1}.json".format(self.base_uri, self.sid)
@@ -544,7 +544,7 @@ class NotificationsTest(ListResourceTest):
 class NotificationTest(InstanceResourceTest):
 
     def setUp(self):
-        self.c = TwilioClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
+        self.c = TelapiClient(account=ACCOUNT_SID, token=AUTH_TOKEN)
         self.sid = "NO123123"
         self.base_uri = "{0}Accounts/{1}/Notifications".format(BASE_URI, ACCOUNT_SID)
         self.uri = "{0}/{1}.json".format(self.base_uri, self.sid)

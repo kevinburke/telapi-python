@@ -9,12 +9,12 @@ from nose.tools import assert_equals
 from nose.tools import raises
 from mock import patch
 from mock import Mock
-from twilio import TwilioRestException
-from twilio.rest.resources import make_request
-from twilio.rest.resources import make_twilio_request
+from telapi import TelapiRestException
+from telapi.rest.resources import make_request
+from telapi.rest.resources import make_telapi_request
 
 get_headers = {
-    "User-Agent": "twilio-python",
+    "User-Agent": "telapi-python",
     "Accept": "application/json",
     }
 
@@ -42,21 +42,21 @@ def test_resp_uri():
     resp = make_request("GET", "http://httpbin.org/get")
     assert_equals(resp.url, "http://httpbin.org/get")
 
-@patch('twilio.rest.resources.make_request')
-def test_make_twilio_request_headers(mock):
+@patch('telapi.rest.resources.make_request')
+def test_make_telapi_request_headers(mock):
     url = "http://random/url"
-    make_twilio_request("POST", url)
+    make_telapi_request("POST", url)
     mock.assert_called_with("POST", "http://random/url.json",
                             headers=post_headers)
 
-@raises(TwilioRestException)
-@patch('twilio.rest.resources.make_request')
-def test_make_twilio_request_bad_data(mock):
+@raises(TelapiRestException)
+@patch('telapi.rest.resources.make_request')
+def test_make_telapi_request_bad_data(mock):
     resp = Mock()
     resp.ok = False
     mock.return_value = resp
 
     url = "http://random/url"
-    make_twilio_request("POST", url)
+    make_telapi_request("POST", url)
     mock.assert_called_with("POST", "http://random/url.json",
                             headers=post_headers)

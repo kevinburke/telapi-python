@@ -8,7 +8,7 @@ import os
 
 sid  = "ed59a5733d2c1c1c69a83a28"
 
-def twilio_clean(contents):
+def telapi_clean(contents):
     contents = re.sub(r"([A-Z]{2}\w{8})\w{24}", r"\1{}".format(sid), contents)
     contents = re.sub(r"\"[a-z0-9]{32}\"", "\"AUTHTOKEN\"", contents)
     contents = re.sub(r"\+\d{10}", r"+14158675309", contents)
@@ -21,7 +21,7 @@ def main():
         if ext == ".json":
             with open(f) as g:
                 contents = g.read()
-            contents = twilio_clean(contents)
+            contents = telapi_clean(contents)
             with open(f, "w") as g:
                 g.write(contents.strip())
                 g.write("\n")

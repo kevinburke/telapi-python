@@ -95,9 +95,9 @@ if "%1" == "qthelp" (
 	echo.
 	echo.Build finished; now you can run "qcollectiongenerator" with the ^
 .qhcp project file in %BUILDDIR%/qthelp, like this:
-	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\twilio-python2.qhcp
+	echo.^> qcollectiongenerator %BUILDDIR%\qthelp\telapi-python2.qhcp
 	echo.To view the help file:
-	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\twilio-python2.ghc
+	echo.^> assistant -collectionFile %BUILDDIR%\qthelp\telapi-python2.ghc
 	goto end
 )
 

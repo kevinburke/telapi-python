@@ -5,8 +5,8 @@ import re
 import os
 import urllib
 
-from twilio import TwilioException
-from twilio import TwilioRestException
+from telapi import TelapiException
+from telapi import TelapiRestException
 from urllib import urlencode
 from urlparse import urlparse
 
@@ -23,7 +23,7 @@ except ImportError:
 try:
     import httplib2
 except ImportError:
-    from twilio.contrib import httplib2
+    from telapi.contrib import httplib2
 
 
 def transform_params(p):
@@ -37,7 +37,7 @@ def transform_params(p):
 
 def parse_date(d):
     """
-    Return a string representation of a date that the Twilio API understands
+    Return a string representation of a date that the Telapi API understands
     Format is YYYY-MM-DD. Returns None if d is not a string, datetime, or date
     """
     if isinstance(d, datetime.datetime):
@@ -143,12 +143,12 @@ def make_request(method, url,
     return Response(resp, content, url)
 
 
-def make_twilio_request(method, uri, **kwargs):
+def make_telapi_request(method, uri, **kwargs):
     """
-    Make a request to Twilio. Throws an error
+    Make a request to Telapi. Throws an error
     """
     headers = kwargs.get("headers", {})
-    headers["User-Agent"] = "twilio-python"   # Add user aggent string
+    headers["User-Agent"] = "telapi-python"   # Add user aggent string
 
     if method == "POST" and "Content-Type" not in headers:
         headers["Content-Type"] = "application/x-www-form-urlencoded"
@@ -168,7 +168,7 @@ def make_twilio_request(method, uri, **kwargs):
         except:
             message = resp.content
 
-        raise TwilioRestException(resp.status_code, resp.url, message)
+        raise TelapiRestException(resp.status_code, resp.url, message)
 
     return resp
 
@@ -193,9 +193,9 @@ class Resource(object):
         """
         Send an HTTP request to the resource.
 
-        Raise a TwilioRestException
+        Raise a TelapiRestException
         """
-        resp = make_twilio_request(method, uri, auth=self.auth, **kwargs)
+        resp = make_telapi_request(method, uri, auth=self.auth, **kwargs)
 
         logging.debug(resp.content)
 
@@ -284,7 +284,7 @@ class ListResource(Resource):
         resp, page = self.request("GET", self.uri, params=params)
 
         if self.key not in page:
-            raise TwilioException("Key %s not present in response" % self.key)
+            raise TelapiException("Key %s not present in response" % self.key)
 
         return [self.load_instance(ir) for ir in page[self.key]]
 
@@ -297,7 +297,7 @@ class ListResource(Resource):
         resp, instance = self.request("POST", self.uri, data=body)
 
         if resp.status_code != 201:
-            raise TwilioRestException(resp.status,
+            raise TelapiRestException(resp.status,
                                       self.uri, "Resource not created")
 
         return self.load_instance(instance)
@@ -343,7 +343,7 @@ class ListResource(Resource):
                 for r in self.list(page=p, **kwargs):
                     yield r
                 p += 1
-        except TwilioRestException:
+        except TelapiRestException:
             pass
 
     def load_instance(self, data):
@@ -378,7 +378,7 @@ class AvailablePhoneNumbers(ListResource):
         self.phone_numbers = phone_numbers
 
     def get(self, sid):
-        raise TwilioException("Individual AvailablePhoneNumbers have no sid")
+        raise TelapiException("Individual AvailablePhoneNumbers have no sid")
 
     def list(self, type="local", country="US", region=None, area_code=None,
              postal_code=None, near_number=None, near_lat_long=None, lata=None,
@@ -546,7 +546,7 @@ class Call(InstanceResource):
         """Route the specified :class:`Call` to another url.
 
         :param url: A valid URL that returns TwiML.
-        :param method: HTTP method Twilio uses when requesting the above URL.
+        :param method: HTTP method Telapi uses when requesting the above URL.
         """
         a = self.parent.route(self.name, **kwargs)
         self.load(a.__dict__)
@@ -628,7 +628,7 @@ class Calls(ListResource):
 
         :param sid: A Call Sid for a specific call
         :param url: A valid URL that returns TwiML.
-        :param method: The HTTP method Twilio uses when requesting the URL.
+        :param method: The HTTP method Telapi uses when requesting the URL.
         :returns: Updated :class:`Call` resource
         """
         return self.update(sid, url=url, method=method)
@@ -735,7 +735,7 @@ class PhoneNumber(InstanceResource):
 
     def delete(self):
         """
-        Release this phone number from your account. Twilio will no longer
+        Release this phone number from your account. Telapi will no longer
         answer calls to this number, and you will stop being billed the monthly
         phone number fees. The phone number will eventually be recycled and
         potentially given to another customer, so use with care. If you make a
@@ -757,7 +757,7 @@ class PhoneNumbers(ListResource):
 
     def delete(self, sid):
         """
-        Release this phone number from your account. Twilio will no longer
+        Release this phone number from your account. Telapi will no longer
         answer calls to this number, and you will stop being billed the
         monthly phone number fees. The phone number will eventually be
         recycled and potentially given to another customer, so use with care.
@@ -867,7 +867,7 @@ class Sandbox(InstanceResource):
 
     def update(self, **kwargs):
         """
-        Update your Twilio Sandbox
+        Update your Telapi Sandbox
         """
         a = self.parent.update(**kwargs)
         self.load(a.__dict__)
@@ -885,7 +885,7 @@ class Sandboxes(ListResource):
     def update(self, voice_url=None, voice_method=None, sms_url=None,
                sms_method=None):
         """
-        Update your Twilio Sandbox
+        Update your Telapi Sandbox
         """
         data = transform_params({
                 "VoiceUrl": voice_url,
@@ -929,7 +929,7 @@ class SmsMessages(ListResource):
         :param to: The destination phone number.
         :param from_: The phone number sending this message.
         :param body: The message you want to send, limited to 160 characters.
-        :param status_callback: URL that Twilio will update with message info
+        :param status_callback: URL that Telapi will update with message info
         """
         params = transform_params({
             "To": to,
@@ -998,10 +998,10 @@ class ShortCodes(ListResource):
                               length 64 characters.
         :param api_version: SMSs to this short code will start a new TwiML
                             session with this API version.
-        :param url: The URL that Twilio should request when somebody sends an
+        :param url: The URL that Telapi should request when somebody sends an
                     SMS to the short code.
         :param method: The HTTP method that should be used to request the url.
-        :param fallback_url: A URL that Twilio will request if an error occurs
+        :param fallback_url: A URL that Telapi will request if an error occurs
                              requesting or executing the TwiML at the url.
         :param fallback_method: The HTTP method that should be used to request
                                 the fallback_url.
@@ -1178,36 +1178,36 @@ class Applications(ListResource):
         :param api_version: Requests to this application's URLs will start a
                             new TwiML session with this API version.
                             Either 2010-04-01 or 2008-08-01.
-        :param voice_url: The URL that Twilio should request when somebody
+        :param voice_url: The URL that Telapi should request when somebody
                           dials a phone number assigned to this application.
         :param voice_method: The HTTP method that should be used to request the
                              VoiceUrl. Either GET or POST.
-        :param voice_fallback_url: A URL that Twilio will request if an error
+        :param voice_fallback_url: A URL that Telapi will request if an error
                                    occurs requesting or executing the TwiML
                                    defined by VoiceUrl.
         :param voice_fallback_method: The HTTP method that should be used to
                                       request the VoiceFallbackUrl. Either GET
                                       or POST.
-        :param status_callback: The URL that Twilio will request to pass status
+        :param status_callback: The URL that Telapi will request to pass status
                                 parameters (such as call ended) to your
                                 application.
-        :param status_callback_method: The HTTP method Twilio will use to make
+        :param status_callback_method: The HTTP method Telapi will use to make
                                        requests to the StatusCallback URL.
                                        Either GET or POST.
         :param voice_caller_id_lookup: Do a lookup of a caller's name from the
                                        CNAM database and post it to your app.
                                        Either true or false.
-        :param sms_url: The URL that Twilio should request when somebody sends
+        :param sms_url: The URL that Telapi should request when somebody sends
                         an SMS to a phone number assigned to this application.
         :param sms_method: The HTTP method that should be used to request the
                            SmsUrl. Either GET or POST.
-        :param sms_fallback_url: A URL that Twilio will request if an error
+        :param sms_fallback_url: A URL that Telapi will request if an error
                                  occurs requesting or executing the TwiML
                                  defined by SmsUrl.
         :param sms_fallback_method: The HTTP method that should be used to
                                     request the SmsFallbackUrl. Either GET
                                     or POST.
-        :param sms_status_callback: Twilio will make a POST request to this URL
+        :param sms_status_callback: Telapi will make a POST request to this URL
                                     to pass status parameters (such as sent or
                                     failed) to your application if you specify
                                     this application's Sid as the

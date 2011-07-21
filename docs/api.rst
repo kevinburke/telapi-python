@@ -2,7 +2,7 @@
 API Documentation
 =================
 
-A complete API reference to the :data:`twilio` module.
+A complete API reference to the :data:`telapi` module.
 
 .. toctree::
    :maxdepth: 1

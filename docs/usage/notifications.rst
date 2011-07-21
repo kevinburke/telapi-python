@@ -1,10 +1,10 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 ====================
 Notifications
 ====================
 
-For more information, see the `Notifications REST Resource <http://www.twilio.com/docs/api/rest/notification>`_ documentation.
+For more information, see the `Notifications REST Resource <http://www.telapi.com/docs/api/rest/notification>`_ documentation.
 
 Listing Your Notifications
 ----------------------------
@@ -13,9 +13,9 @@ The following code will print out additional information about each of your curr
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     for notification in client.notifications.list():
         print notification.more_info
 
@@ -23,9 +23,9 @@ You can filter transcriptions by :attr:`log` and :attr:`message_date`. The :attr
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
 
     ERROR = 0
 
@@ -41,7 +41,7 @@ Your account can sometimes generate an inordinate amount of :class:`Notification
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     client.notifications.delete("NO123")

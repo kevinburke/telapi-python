@@ -1,10 +1,10 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 ================
 Recordings
 ================
 
-For more information, see the `Recordings REST Resource <http://www.twilio.com/docs/api/rest/recording>`_ documentation.
+For more information, see the `Recordings REST Resource <http://www.telapi.com/docs/api/rest/recording>`_ documentation.
 
 Audio Formats
 -----------------
@@ -25,9 +25,9 @@ The following code will print out the :attr:`duration` for each :class:`Recordin
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     for recording in client.recordings.list():
         print recording.duration
 
@@ -38,9 +38,9 @@ The following will only show recordings made before January 1, 2011.
 .. code-block:: python
 
     from datetime import date
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     for recording in client.recordings.list(before=date(2011,1,1)):
         print recording.duration
 
@@ -51,9 +51,9 @@ The :class:`Recordings` resource allows you to delete unnecessary recordings.
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     client.recordings.delete("RC123")
 
 Accessing Related Transcptions
@@ -63,9 +63,9 @@ The :class:`Recordings` resource allows you to delete unnecessary recordings. Th
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    client = TwilioRestClient()
+    client = TelapiRestClient()
     recording = client.recordings.get("RC123")
 
     for transcription in recording.transcriptions.list():

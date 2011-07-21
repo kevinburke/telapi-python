@@ -72,17 +72,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/twilio-python2.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/telapi-python2.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/twilio-python2.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/telapi-python2.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/twilio-python2"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/twilio-python2"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/telapi-python2"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/telapi-python2"
 	@echo "# devhelp"
 
 epub:

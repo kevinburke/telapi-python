@@ -2,36 +2,36 @@
 Upgrade Guide
 ==============
 
-Porting your application from **twilio-python** 2.0 to 3.0 is straightforward. All the same methods are still offered. Only their location has changed.
+Porting your application from **telapi-python** 2.0 to 3.0 is straightforward. All the same methods are still offered. Only their location has changed.
 
 Making API Requests
 ====================
 
-:class:`twilio.Account` has been moved to :class:`twilio.rest.TwilioRestClient`. The rest client offers a greatly improved API; however, the old :meth:`request` method still exists (in a deprecated state). We suggest you migrate your code to use the new API.
+:class:`telapi.Account` has been moved to :class:`telapi.rest.TelapiRestClient`. The rest client offers a greatly improved API; however, the old :meth:`request` method still exists (in a deprecated state). We suggest you migrate your code to use the new API.
 
 Here is how you would place an outgoing call with the older version.
 
 .. code-block:: python
 
-    import twilio
+    import telapi
 
-    # Twilio REST API version
+    # Telapi REST API version
     API_VERSION = '2010-04-01'
 
-    # Twilio AccountSid and AuthToken
+    # Telapi AccountSid and AuthToken
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
-    # Outgoing Caller ID previously validated with Twilio
+    # Outgoing Caller ID previously validated with Telapi
     CALLER_ID = 'NNNNNNNNNN';
 
-    # Create a Twilio REST account object using your account ID and token
-    account = twilio.Account(ACCOUNT_SID, ACCOUNT_TOKEN)
+    # Create a Telapi REST account object using your account ID and token
+    account = telapi.Account(ACCOUNT_SID, ACCOUNT_TOKEN)
 
     d = {
         'From' : CALLER_ID,
         'To' : '415-555-1212',
-        'Url' : 'http://demo.twilio.com/welcome',
+        'Url' : 'http://demo.telapi.com/welcome',
     }
 
     print account.request('/%s/Accounts/%s/Calls' % \
@@ -41,19 +41,19 @@ The same code, updated to work with the new version (albeit using deprecated met
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
     API_VERSION = '2010-04-01'
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
     CALLER_ID = 'NNNNNNNNNN';
 
-    client = TwilioRestClient(ACCOUNT_SID, ACCOUNT_TOKEN)
+    client = TelapiRestClient(ACCOUNT_SID, ACCOUNT_TOKEN)
 
     d = {
         'From' : CALLER_ID,
         'To' : '415-555-1212',
-        'Url' : 'http://demo.twilio.com/welcome',
+        'Url' : 'http://demo.telapi.com/welcome',
     }
 
     print client.request('/%s/Accounts/%s/Calls' % \
@@ -63,14 +63,14 @@ A final version using the new interface.
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
-    client = TwilioRestClient(ACCOUNT_SID, ACCOUNT_TOKEN)
+    client = TelapiRestClient(ACCOUNT_SID, ACCOUNT_TOKEN)
     call = client.calls.create(from_='NNNNNNNNNN', to='415-555-1212',
-                               url='http://demo.twilio.com/welcome')
+                               url='http://demo.telapi.com/welcome')
 
     print call
 
@@ -84,10 +84,10 @@ Here is how you would craft a response using the old library.
 
 .. code-block:: python
 
-    import twilio
+    import telapi
 
-    r = twilio.Response()
-    r.addSay("Hello World", voice=twilio.Say.MAN, language=twilio.Say.FRENCH,
+    r = telapi.Response()
+    r.addSay("Hello World", voice=telapi.Say.MAN, language=telapi.Say.FRENCH,
              loop=10)
     r.addDial("4155551212", timeLimit=45)
     r.addPlay("http://www.mp3.com")
@@ -97,7 +97,7 @@ To use the new version, just change the import at the top.
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
     r.addSay("Hello World", voice=twiml.Say.MAN, language=twiml.Say.FRENCH,
@@ -110,7 +110,7 @@ The add methods are deprecated and undocumented, so please change them to the ne
 
 .. code-block:: python
 
-    from twilio import twiml
+    from telapi import twiml
 
     r = twiml.Response()
 
@@ -125,18 +125,18 @@ The add methods are deprecated and undocumented, so please change them to the ne
 Checking Signatures
 =====================
 
-The :class:`Utils` class has been renamed to :class:`TwilioValidation` in the :mod:`twilio.util` module and the :meth:`validateRequest` method has been renamed :meth:`validate`.
+The :class:`Utils` class has been renamed to :class:`TelapiValidation` in the :mod:`telapi.util` module and the :meth:`validateRequest` method has been renamed :meth:`validate`.
 
-A sample using the old version of **twilio-python**.
+A sample using the old version of **telapi-python**.
 
 .. code-block:: python
 
-    import twilio
+    import telapi
 
     ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
-    utils = twilio.Utils(ACCOUNT_SID, ACCOUNT_TOKEN)
+    utils = telapi.Utils(ACCOUNT_SID, ACCOUNT_TOKEN)
 
     url = "http://UUUUUUUUUUUUUUUUUU"
     post_vars = {}
@@ -144,7 +144,7 @@ A sample using the old version of **twilio-python**.
     signature = "SSSSSSSSSSSSSSSSSSSSSSSSSSSS"
 
     if utils.validateRequest(url, post_vars, signature):
-        print "was confirmed to have come from Twilio."
+        print "was confirmed to have come from Telapi."
     else:
         print "was NOT VALID.  It might have been spoofed!"
 
@@ -152,7 +152,7 @@ The same sample, converted to use the new version.
 
 .. code-block:: python
 
-    from twilio import util
+    from telapi import util
 
     ACCOUNT_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 
@@ -164,6 +164,6 @@ The same sample, converted to use the new version.
     signature = "SSSSSSSSSSSSSSSSSSSSSSSSSSSS"
 
     if utils.validate(url, post_vars, signature):
-        print "was confirmed to have come from Twilio."
+        print "was confirmed to have come from Telapi."
     else:
         print "was NOT VALID.  It might have been spoofed!"

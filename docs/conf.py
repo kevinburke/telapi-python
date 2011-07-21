@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# twilio-python2 documentation build configuration file, created by
+# telapi-python2 documentation build configuration file, created by
 # sphinx-quickstart on Mon Dec 13 16:47:32 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'twilio-python'
+project = u'telapi-python'
 copyright = u'2011, Twilio Inc.'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -162,7 +162,7 @@ html_static_path = ['_static']
 #html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -173,7 +173,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'twilio-pythondoc'
+htmlhelp_basename = 'telapi-pythondoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,8 +187,8 @@ htmlhelp_basename = 'twilio-pythondoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'twilio-python.tex', u'twilio-python Documentation',
-   u'Twilio Inc.', 'manual'),
+  ('index', 'telapi-python.tex', u'telapi-python Documentation',
+   u'Telapi Inc.', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -220,15 +220,15 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'twilio-python', u'twilio-python Documentation',
-     [u'Twilio Inc.'], 1)
+    ('index', 'telapi-python', u'telapi-python Documentation',
+     [u'Telapi Inc.'], 1)
 ]
 
 
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'twilio-python'
+epub_title = u'telapi-python'
 epub_author = u'kyle@twilio.com'
 epub_publisher = u'Twilio Inc.'
 epub_copyright = u'2010, Twilio Inc.'

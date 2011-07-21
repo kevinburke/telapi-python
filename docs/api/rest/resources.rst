@@ -1,7 +1,7 @@
-.. module:: twilio.rest.resources
+.. module:: telapi.rest.resources
 
 =============================
-:mod:`twilio.rest.resources`
+:mod:`telapi.rest.resources`
 =============================
 
 .. autoclass:: ListResource
@@ -79,27 +79,27 @@ Applications
 
    .. attribute:: voice_url
 
-      URL Twilio will request when a phone number assigned to this application receives a call.
+      URL Telapi will request when a phone number assigned to this application receives a call.
 
    .. attribute:: voice_method
 
-      The HTTP method Twilio will use when requesting the above Url. Either GET or POST.
+      The HTTP method Telapi will use when requesting the above Url. Either GET or POST.
 
    .. attribute:: voice_fallback_url
 
-      The URL that Twilio will request if an error occurs retrieving or executing the TwiML requested by Url.
+      The URL that Telapi will request if an error occurs retrieving or executing the TwiML requested by Url.
 
    .. attribute:: voice_fallback_method
 
-      The HTTP method Twilio will use when requesting the VoiceFallbackUrl. Either GET or POST.
+      The HTTP method Telapi will use when requesting the VoiceFallbackUrl. Either GET or POST.
 
    .. attribute:: status_callback
 
-      The URL that Twilio will request to pass status parameters (such as call ended) to your application.
+      The URL that Telapi will request to pass status parameters (such as call ended) to your application.
 
    .. attribute:: status_callback_method
 
-      The HTTP method Twilio will use to make requests to the StatusCallback URL. Either GET or POST.
+      The HTTP method Telapi will use to make requests to the StatusCallback URL. Either GET or POST.
 
    .. attribute:: voice_caller_id_lookup
 
@@ -107,37 +107,37 @@ Applications
 
    .. attribute:: sms_url
 
-      The URL Twilio will request when a phone number assigned to this application receives an incoming SMS message.
+      The URL Telapi will request when a phone number assigned to this application receives an incoming SMS message.
 
    .. attribute:: sms_method
 
-      The HTTP method Twilio will use when making requests to the SmsUrl. Either GET or POST.
+      The HTTP method Telapi will use when making requests to the SmsUrl. Either GET or POST.
 
    .. attribute:: sms_fallback_url
 
-      The URL that Twilio will request if an error occurs retrieving or executing the TwiML from SmsUrl.
+      The URL that Telapi will request if an error occurs retrieving or executing the TwiML from SmsUrl.
 
    .. attribute:: sms_fallback_method
 
-      The HTTP method Twilio will use when requesting the above URL. Either GET or POST.
+      The HTTP method Telapi will use when requesting the above URL. Either GET or POST.
 
    .. attribute:: sms_status_callback
 
-      Twilio will make a POST request to this URL to pass status parameters (such as sent or failed) to your application if you specify this application's Sid as the ApplicationSid on an outgoing SMS request.
+      Telapi will make a POST request to this URL to pass status parameters (such as sent or failed) to your application if you specify this application's Sid as the ApplicationSid on an outgoing SMS request.
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
 
 Calls
 >>>>>>
 
-.. autoclass:: twilio.rest.resources.Calls
+.. autoclass:: telapi.rest.resources.Calls
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Call
+.. autoclass:: telapi.rest.resources.Call
    :members:
 
    .. attribute:: sid
@@ -211,11 +211,11 @@ Calls
 Caller Ids
 >>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.CallerIds
+.. autoclass:: telapi.rest.resources.CallerIds
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.CallerId
+.. autoclass:: telapi.rest.resources.CallerId
    :members:
 
    .. attribute:: sid
@@ -244,16 +244,16 @@ Caller Ids
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com.
+      The URI for this resource, relative to https://api.telapi.com.
 
 Conferences
 >>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Conferences
+.. autoclass:: telapi.rest.resources.Conferences
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Conference
+.. autoclass:: telapi.rest.resources.Conference
    :members:
 
    .. attribute:: sid
@@ -282,7 +282,7 @@ Conferences
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com.
+      The URI for this resource, relative to https://api.telapi.com.
 
    .. attribute:: participants
 
@@ -292,11 +292,11 @@ Conferences
 Notifications
 >>>>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Notifications
+.. autoclass:: telapi.rest.resources.Notifications
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Notification
+.. autoclass:: telapi.rest.resources.Notification
    :members:
 
    .. attribute:: sid
@@ -321,7 +321,7 @@ Notifications
 
    .. attribute:: api_version
 
-      The version of the Twilio in use when this notification was generated.
+      The version of the Telapi in use when this notification was generated.
 
    .. attribute:: log
 
@@ -345,15 +345,15 @@ Notifications
 
    .. attribute:: request_url
 
-      The URL of the resource that generated the notification. If the notification was generated during a phone call: This is the URL of the resource on YOUR SERVER that caused the notification. If the notification was generated by your use of the REST API: This is the URL of the REST resource you were attempting to request on Twilio's servers.
+      The URL of the resource that generated the notification. If the notification was generated during a phone call: This is the URL of the resource on YOUR SERVER that caused the notification. If the notification was generated by your use of the REST API: This is the URL of the REST resource you were attempting to request on Telapi's servers.
 
    .. attribute:: request_method
 
-      The HTTP method in use for the request that generated the notification. If the notification was generated during a phone call: The HTTP Method use to request the resource on your server. If the notification was generated by your use of the REST API: This is the HTTP method used in your request to the REST resource on Twilio's servers.
+      The HTTP method in use for the request that generated the notification. If the notification was generated during a phone call: The HTTP Method use to request the resource on your server. If the notification was generated by your use of the REST API: This is the HTTP method used in your request to the REST resource on Telapi's servers.
 
    .. attribute:: request_variables
 
-      The Twilio-generated HTTP GET or POST variables sent to your server. Alternatively, if the notification was generated by the REST API, this field will include any HTTP POST or PUT variables you sent to the REST API.
+      The Telapi-generated HTTP GET or POST variables sent to your server. Alternatively, if the notification was generated by the REST API, this field will include any HTTP POST or PUT variables you sent to the REST API.
 
    .. attribute:: response_headers
 
@@ -365,16 +365,16 @@ Notifications
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
 Participlants
 >>>>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Participants
+.. autoclass:: telapi.rest.resources.Participants
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Participant
+.. autoclass:: telapi.rest.resources.Participant
    :members:
 
    .. attribute:: call_sid
@@ -411,17 +411,17 @@ Participlants
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com.
+      The URI for this resource, relative to https://api.telapi.com.
 
 
 Phone Numbers
 >>>>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.PhoneNumbers
+.. autoclass:: telapi.rest.resources.PhoneNumbers
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.PhoneNumber
+.. autoclass:: telapi.rest.resources.PhoneNumber
    :members:
 
    .. attribute:: sid
@@ -458,49 +458,49 @@ Phone Numbers
 
    .. attribute:: voice_url
 
-      The URL Twilio will request when this phone number receives a call.
+      The URL Telapi will request when this phone number receives a call.
 
    .. attribute:: voice_method
 
-      The HTTP method Twilio will use when requesting the above Url. Either GET or POST.
+      The HTTP method Telapi will use when requesting the above Url. Either GET or POST.
 
    .. attribute:: voice_fallback_url
 
-      The URL that Twilio will request if an error occurs retrieving or executing the TwiML requested by Url.
+      The URL that Telapi will request if an error occurs retrieving or executing the TwiML requested by Url.
 
    .. attribute:: voice_fallback_method
 
-      The HTTP method Twilio will use when requesting the VoiceFallbackUrl. Either GET or POST.
+      The HTTP method Telapi will use when requesting the VoiceFallbackUrl. Either GET or POST.
 
    .. attribute:: status_callback
 
-      The URL that Twilio will request to pass status parameters (such as call ended) to your application.
+      The URL that Telapi will request to pass status parameters (such as call ended) to your application.
 
    .. attribute:: status_callback_method
 
-      The HTTP method Twilio will use to make requests to the StatusCallback URL. Either GET or POST.
+      The HTTP method Telapi will use to make requests to the StatusCallback URL. Either GET or POST.
 
    .. attribute:: sms_url
 
-      The URL Twilio will request when receiving an incoming SMS message to this number.
+      The URL Telapi will request when receiving an incoming SMS message to this number.
 
    .. attribute:: sms_method
 
-      The HTTP method Twilio will use when making requests to the SmsUrl. Either GET or POST.
+      The HTTP method Telapi will use when making requests to the SmsUrl. Either GET or POST.
 
    .. attribute:: sms_fallback_url
 
-      The URL that Twilio will request if an error occurs retrieving or executing the TwiML from SmsUrl.
+      The URL that Telapi will request if an error occurs retrieving or executing the TwiML from SmsUrl.
 
    .. attribute:: sms_fallback_method
 
-      The HTTP method Twilio will use when requesting the above URL. Either GET or POST.
+      The HTTP method Telapi will use when requesting the above URL. Either GET or POST.
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com.
+      The URI for this resource, relative to https://api.telapi.com.
 
-.. autoclass:: twilio.rest.resources.AvailablePhoneNumber
+.. autoclass:: telapi.rest.resources.AvailablePhoneNumber
    :members:
 
    .. attribute:: friendly_name
@@ -541,11 +541,11 @@ Phone Numbers
 Recordings
 >>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Recordings
+.. autoclass:: telapi.rest.resources.Recordings
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Recording
+.. autoclass:: telapi.rest.resources.Recording
    :members:
 
    .. attribute:: sid
@@ -578,7 +578,7 @@ Recordings
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
    .. attribute:: subresource_uris
 
@@ -591,18 +591,18 @@ Recordings
       .. code-block:: python
 
           {
-              "wav": "https://api.twilio.com/path/to/recording.wav",
-              "mp3": "https://api.twilio.com/path/to/recording.mp3",
+              "wav": "https://api.telapi.com/path/to/recording.wav",
+              "mp3": "https://api.telapi.com/path/to/recording.mp3",
           }
 
 Sandbox
 >>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Sandboxes
+.. autoclass:: telapi.rest.resources.Sandboxes
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Sandbox
+.. autoclass:: telapi.rest.resources.Sandbox
    :members:
 
    .. attribute:: pin
@@ -619,7 +619,7 @@ Sandbox
 
    .. attribute:: voice_url
 
-      The URL Twilio will request when the sandbox number is called.
+      The URL Telapi will request when the sandbox number is called.
 
    .. attribute:: voice_method
 
@@ -627,7 +627,7 @@ Sandbox
 
    .. attribute:: sms_url
 
-      The URL Twilio will request when receiving an incoming SMS message to the sandbox number.
+      The URL Telapi will request when receiving an incoming SMS message to the sandbox number.
 
    .. attribute:: sms_method
 
@@ -643,16 +643,16 @@ Sandbox
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
 
 Short Codes
 >>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.ShortCodes
+.. autoclass:: telapi.rest.resources.ShortCodes
    :members:
 
-.. autoclass:: twilio.rest.resources.ShortCode
+.. autoclass:: telapi.rest.resources.ShortCode
    :members:
 
    .. attribute:: sid
@@ -685,32 +685,32 @@ Short Codes
 
    .. attribute:: sms_url
 
-      The URL Twilio will request when receiving an incoming SMS message to this short code.
+      The URL Telapi will request when receiving an incoming SMS message to this short code.
 
    .. attribute:: sms_method
 
-      The HTTP method Twilio will use when making requests to the :attr:`sms_url`. Either GET or POST.
+      The HTTP method Telapi will use when making requests to the :attr:`sms_url`. Either GET or POST.
 
    .. attribute:: sms_fallback_url
 
-      The URL that Twilio will request if an error occurs retrieving or executing the TwiML from :attr:`sms_url`.
+      The URL that Telapi will request if an error occurs retrieving or executing the TwiML from :attr:`sms_url`.
 
    .. attribute:: sms_fallback_method
 
-      The HTTP method Twilio will use when requesting the above URL. Either GET or POST.
+      The HTTP method Telapi will use when requesting the above URL. Either GET or POST.
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com.
+      The URI for this resource, relative to https://api.telapi.com.
 
 
 SMS Messages
 >>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.SmsMessages
+.. autoclass:: telapi.rest.resources.SmsMessages
    :members:
 
-.. autoclass:: twilio.rest.resources.SmsMessage
+.. autoclass:: telapi.rest.resources.SmsMessage
    :members:
 
    .. attribute:: sid
@@ -735,11 +735,11 @@ SMS Messages
 
    .. attribute:: from
 
-      The phone number that initiated the message in E.164 format. For incoming messages, this will be the remote phone. For outgoing messages, this will be one of your Twilio phone numbers.
+      The phone number that initiated the message in E.164 format. For incoming messages, this will be the remote phone. For outgoing messages, this will be one of your Telapi phone numbers.
 
    .. attribute:: to
 
-      The phone number that received the message in E.164 format. For incoming messages, this will be one of your Twilio phone numbers. For outgoing messages, this will be the remote phone.
+      The phone number that received the message in E.164 format. For incoming messages, this will be one of your Telapi phone numbers. For outgoing messages, this will be the remote phone.
 
    .. attribute:: body
 
@@ -759,21 +759,21 @@ SMS Messages
 
    .. attribute:: api_version
 
-      The version of the Twilio API used to process the SMS message.
+      The version of the Telapi API used to process the SMS message.
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
 
 Transcriptions
 >>>>>>>>>>>>>>>
 
-.. autoclass:: twilio.rest.resources.Transcriptions
+.. autoclass:: telapi.rest.resources.Transcriptions
    :members:
    :exclude-members: instance
 
-.. autoclass:: twilio.rest.resources.Transcription
+.. autoclass:: telapi.rest.resources.Transcription
    :members:
 
    .. attribute:: sid
@@ -814,6 +814,6 @@ Transcriptions
 
    .. attribute:: uri
 
-      The URI for this resource, relative to https://api.twilio.com
+      The URI for this resource, relative to https://api.telapi.com
 
 

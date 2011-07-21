@@ -1,12 +1,12 @@
-.. module:: twilio.rest
+.. module:: telapi.rest
 
 ===========
 Accounts
 ===========
 
-Managing Twilio accounts is straightforward. Update your own account information or create and manage multiple subaccounts.
+Managing Telapi accounts is straightforward. Update your own account information or create and manage multiple subaccounts.
 
-For more information, see the `Account REST Resource <http://www.twilio.com/docs/api/rest/account>`_ documentation.
+For more information, see the `Account REST Resource <http://www.telapi.com/docs/api/rest/account>`_ documentation.
 
 
 Updating Account Information
@@ -16,9 +16,9 @@ Use the :meth:`Account.update` to modify one of your accounts. Right now the onl
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     account = conn.accounts.get()
     account.update(name="My Awesome Account")
 
@@ -29,9 +29,9 @@ Subaccounts are easy to make.
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
     subaccount = conn.accounts.create(name="My Awesome SubAccount")
 
 Managing Subaccounts
@@ -41,9 +41,9 @@ Say you have a subaccount for Client X with an account sid `AC123`
 
 .. code-block:: python
 
-    from twilio.rest import TwilioRestClient
+    from telapi.rest import TelapiRestClient
 
-    conn = TwilioRestClient()
+    conn = TelapiRestClient()
 
     # Client X's subaccount
     subaccount = conn.accounts.get('AC123')

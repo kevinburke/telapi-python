@@ -10,7 +10,7 @@ class TwimlException(Exception):
 
 
 class Verb(object):
-    """Twilio basic verb object.
+    """Telapi basic verb object.
     """
     def __init__(self, **kwargs):
         self.name = self.__class__.__name__
@@ -67,9 +67,9 @@ class Verb(object):
 
 
 class Response(Verb):
-    """Twilio response object."""
+    """Telapi response object."""
     def __init__(self, **kwargs):
-        """Version: Twilio API version e.g. 2008-08-01 """
+        """Version: Telapi API version e.g. 2008-08-01 """
 
         Verb.__init__(self, **kwargs)
         self.nestables = [
@@ -175,7 +175,7 @@ class Say(Verb):
                   back.
 
     :param language: allows you pick a voice with a specific language's accent
-                     and pronunciations. Twilio currently supports languages
+                     and pronunciations. Telapi currently supports languages
                      'en' (English), 'es' (Spanish), 'fr' (French), and 'de'
                      (German).
 
@@ -222,7 +222,7 @@ class Play(Verb):
 class Pause(Verb):
     """Pause the call
 
-    :param length: specifies how many seconds Twilio will wait silently before
+    :param length: specifies how many seconds Telapi will wait silently before
                    continuing on.
     """
     def __init__(self, length=None, **kwargs):
@@ -232,7 +232,7 @@ class Pause(Verb):
 class Redirect(Verb):
     """Redirect call flow to another URL
 
-    :param url: specifies the url which Twilio should query to retrieve new
+    :param url: specifies the url which Telapi should query to retrieve new
                 TwiML. The default is the current url
 
     :param method: specifies the HTTP method to use when retrieving the url

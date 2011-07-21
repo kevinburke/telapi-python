@@ -5,11 +5,11 @@ import unittest
 from mock import Mock
 from nose.tools import assert_equals
 from nose.tools import raises
-from twilio.rest.resources import Resource
-from twilio.rest.resources import ListResource
-from twilio.rest.resources import InstanceResource
+from telapi.rest.resources import Resource
+from telapi.rest.resources import ListResource
+from telapi.rest.resources import InstanceResource
 
-base_uri = "https://api.twilio.com/2010-04-01"
+base_uri = "https://api.telapi.com/2010-04-01"
 account_sid = "AC123"
 auth = (account_sid, "token")
 

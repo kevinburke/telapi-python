@@ -1,9 +1,9 @@
 import unittest
 from mock import Mock
-from twilio import TwilioException
-from twilio.rest.resources import AvailablePhoneNumber
-from twilio.rest.resources import AvailablePhoneNumbers
-from twilio.rest.resources import PhoneNumbers
+from telapi import TelapiException
+from telapi.rest.resources import AvailablePhoneNumber
+from telapi.rest.resources import AvailablePhoneNumbers
+from telapi.rest.resources import PhoneNumbers
 
 
 class AvailablePhoneNumberTest(unittest.TestCase):
@@ -27,11 +27,11 @@ class AvailablePhoneNumberTest(unittest.TestCase):
 class AvailabePhoneNumbersTest(unittest.TestCase):
 
     def setUp(self):
-        self.resource = AvailablePhoneNumbers("http://api.twilio.com",
+        self.resource = AvailablePhoneNumbers("http://api.telapi.com",
                                               ("user", "pass"), Mock())
 
     def test_get(self):
-        with self.assertRaises(TwilioException):
+        with self.assertRaises(TelapiException):
             self.resource.get("PN123")
 
     def test_list(self):
@@ -41,7 +41,7 @@ class AvailabePhoneNumbersTest(unittest.TestCase):
 
         self.resource.list()
 
-        uri = "http://api.twilio.com/AvailablePhoneNumbers/US/Local"
+        uri = "http://api.telapi.com/AvailablePhoneNumbers/US/Local"
         request.assert_called_with("GET", uri, params={})
 
     def test_load_instance(self):
@@ -53,7 +53,7 @@ class AvailabePhoneNumbersTest(unittest.TestCase):
 class PhoneNumbersTest(unittest.TestCase):
 
     def test_reference(self):
-        base = "http://api.twilio.com"
+        base = "http://api.telapi.com"
         phone_numbers = PhoneNumbers(base, Mock())
 
         self.assertEquals(phone_numbers.available_phone_numbers.phone_numbers,
