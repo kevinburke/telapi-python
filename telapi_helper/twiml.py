@@ -309,9 +309,10 @@ class Number(Verb):
 
     :param number: phone number to dial
     :param sendDigits: key to press after connecting to the number
+    :param forwardedFrom: set the diversion number on the call SIP variables
     """
-    def __init__(self, number, sendDigits=None, **kwargs):
-        Verb.__init__(self, sendDigits=sendDigits, **kwargs)
+    def __init__(self, number, sendDigits=None, forwardedFrom=None, **kwargs):
+        Verb.__init__(self, sendDigits=sendDigits, forwardedFrom=forwardedFrom, **kwargs)
         self.body = number
 
 
