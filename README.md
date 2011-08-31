@@ -4,7 +4,7 @@ A module for using the Telapi REST API and generating valid TwiML.
 
 Install from PyPi using pip
 
-    pip install telapi
+    pip install https://github.com/teltechsystems/telapi-python/tarball/master
 
 ## Getting Started
 
