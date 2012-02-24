@@ -315,6 +315,16 @@ class Number(Verb):
         Verb.__init__(self, sendDigits=sendDigits, forwardedFrom=forwardedFrom, **kwargs)
         self.body = number
 
+class Sip(Verb):
+    """Specify SIP address in a nested Dial element.
+
+    :param number: SIP address to dial
+    :param sendDigits: key to press after connecting to the number
+    :param forwardedFrom: set the diversion number on the call SIP variables
+    """
+    def __init__(self, number, sendDigits=None, forwardedFrom=None, **kwargs):
+        Verb.__init__(self, sendDigits=sendDigits, forwardedFrom=forwardedFrom, **kwargs)
+        self.body = number
 
 class Sms(Verb):
     """ Send a Sms Message to a phone number
@@ -389,11 +399,17 @@ class Dial(Verb):
     def number(self, number, **kwargs):
         return self.append(Number(number, **kwargs))
 
+    def sip(self, number, **kwargs):
+        return self.append(Sip(number, **kwargs))
+
     def conference(self, name, **kwargs):
         return self.append(Conference(name, **kwargs))
 
     def addNumber(self, *args, **kwargs):
         return self.number(*args, **kwargs)
+
+    def addSip(self, *args, **kwargs):
+        return self.sip(*args, **kwargs)
 
     def addConference(self, *args, **kwargs):
         return self.conference(*args, **kwargs)
