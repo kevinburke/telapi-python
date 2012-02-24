@@ -2,7 +2,7 @@
 Telapi Python
 ==================================
 
-Make requests to Telapi's `REST API <http://www.telapi_helper.com/docs/api/twiml/>`_ and create `TwiML <http://www.telapi_helper.com/docs/api/twiml/>`_ without a hassle. And you thought Telapi couldn't get any easier.
+Make requests to Telapi's `REST API <http://www.telapi.com/docs/api/telml/>`_ and create `TwiML <http://www.telapi_helper.com/docs/api/telml/>`_ without a hassle. And you thought Telapi couldn't get any easier.
 
 .. _installation:
 
@@ -58,7 +58,7 @@ Generates valid TwiML for controlling and manipulating phone calls.
 .. toctree::
     :maxdepth: 2
 
-    usage/twiml
+    usage/telml
 
 Utilites
 ----------

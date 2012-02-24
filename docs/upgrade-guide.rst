@@ -78,7 +78,7 @@ A final version using the new interface.
 Generating TwiML
 =================
 
-:class:`Response` has moved into the :mod:`twiml` module. The `add*` methods have also been deprecated in favor of method names without the 'add' prefix (as shown below).
+:class:`Response` has moved into the :mod:`telml` module. The `add*` methods have also been deprecated in favor of method names without the 'add' prefix (as shown below).
 
 Here is how you would craft a response using the old library.
 
@@ -97,10 +97,10 @@ To use the new version, just change the import at the top.
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
-    r.addSay("Hello World", voice=twiml.Say.MAN, language=twiml.Say.FRENCH,
+    r = telml.Response()
+    r.addSay("Hello World", voice=telml.Say.MAN, language=telml.Say.FRENCH,
              loop=10)
     r.addDial("4155551212", timeLimit=45)
     r.addPlay("http://www.mp3.com")
@@ -110,11 +110,11 @@ The add methods are deprecated and undocumented, so please change them to the ne
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
 
-    r.say("Hello World", voice=twiml.Say.MAN, language=twiml.Say.FRENCH,
+    r.say("Hello World", voice=telml.Say.MAN, language=telml.Say.FRENCH,
              loop=10)
     r.dial("4155551212", timeLimit=45)
     r.play("http://www.mp3.com")

@@ -9,7 +9,7 @@ The :class:`Calls` resource manages all interaction with Telapi phone calls, inc
 Making a Phone Call
 -------------------
 
-The :class:`Calls` resource allows you to make outgoing calls. Before a call can be successfully started, you'll need a url which outputs valid `TwiML <http://www.telapi_helper.com/docs/api/twiml/>`_.
+The :class:`Calls` resource allows you to make outgoing calls. Before a call can be successfully started, you'll need a url which outputs valid `TwiML <http://www.telapi_helper.com/docs/api/telml/>`_.
 
 .. code-block:: python
 

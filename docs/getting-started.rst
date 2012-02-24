@@ -20,13 +20,13 @@ Making a Call
 Generating TwiML
 =================
 
-To control phone calls, your application need to output TwiML. Use :class:`telapi_helper.twiml..Response` to easily create such responses.
+To control phone calls, your application need to output TwiML. Use :class:`telapi_helper.telml..Response` to easily create such responses.
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
     r.play("monkey.mp3", loop=5)
     print str(r)
 

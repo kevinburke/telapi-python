@@ -386,7 +386,7 @@ class Dial(Verb):
 
     def __init__(self, number=None, action=None, method=None, **kwargs):
         Verb.__init__(self, action=action, method=method, **kwargs)
-        self.nestables = ['Number', 'Conference']
+        self.nestables = ['Number', 'Conference', 'Sip']
         if number and len(number.split(',')) > 1:
             for n in number.split(','):
                 self.append(Number(n.strip()))

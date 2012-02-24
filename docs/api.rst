@@ -9,5 +9,5 @@ A complete API reference to the :data:`telapi` module.
 
    api/rest/index
    api/rest/resources
-   api/twiml
+   api/telml
 

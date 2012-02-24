@@ -56,7 +56,7 @@ Updating an Application
     from telapi_helper.rest import TelapiRestClient
 
     conn = TelapiRestClient()
-    url = "http://www.example.com/twiml.xml"
+    url = "http://www.example.com/telml.xml"
     application = conn.applications.update(app_sid, voice_url=url)
 
 

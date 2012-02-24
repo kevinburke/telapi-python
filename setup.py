@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 setup(
     name = "telapi",
-    version = "3.0.2",
+    version = "3.1.0",
     description = "TelAPI client and TelML generator",
-    author = "Telapi",
+    author = "TelAPI",
     author_email = "help@telapi_helper.com",
     url = "http://github.com/telapi/telapi-python/",
-    keywords = ["telapi","twiml"],
+    keywords = ["telapi","telml"],
     install_requires = ["httplib2"],
     packages = find_packages(),
     classifiers = [

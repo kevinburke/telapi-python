@@ -1,6 +1,6 @@
-.. _usage-twiml:
+.. _usage-telml:
 
-.. module:: telapi_helper.twiml
+.. module:: telapi_helper.telml
 
 ==============
 TwiML Creation
@@ -10,9 +10,9 @@ TwiML creation begins with the :class:`Response` verb. Each successive verb is c
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
     r.say("Hello")
     print str(r)
 
@@ -25,9 +25,9 @@ The verb methods (outlined in the complete reference) take the body (only text) 
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
     r.play("monkey.mp3", loop=5)
     print str(r)
 
@@ -40,9 +40,9 @@ Python 2.6+ added the :const:`with` statement for context management. Using :con
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
     r.say("hello")
     with r.gather(finishOnKey=4) as g:
         g.say("world")
@@ -62,9 +62,9 @@ If you don't want the XML declaration in your output, use the :meth:`toxml` meth
 
 .. code-block:: python
 
-    from telapi_helper import twiml
+    from telapi_helper import telml
 
-    r = twiml.Response()
+    r = telml.Response()
     r.say("hello")
     with r.gather(finishOnKey=4) as g:
         g.say("world")

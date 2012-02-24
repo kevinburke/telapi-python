@@ -1,55 +1,55 @@
 ====================
-:mod:`telapi_helper.twiml`
+:mod:`telapi_helper.telml`
 ====================
 
-.. automodule:: telapi_helper.twiml
+.. automodule:: telapi_helper.telml
 
-.. autoclass:: telapi_helper.twiml.Response
+.. autoclass:: telapi_helper.telml.Response
    :members:
 
 Primary Verbs
 ~~~~~~~~~~~~~
 
-.. autoclass:: telapi_helper.twiml.Say
+.. autoclass:: telapi_helper.telml.Say
    :members:
 
-.. autoclass:: telapi_helper.twiml.Play
+.. autoclass:: telapi_helper.telml.Play
    :members:
 
-.. autoclass:: telapi_helper.twiml.Dial
+.. autoclass:: telapi_helper.telml.Dial
    :members:
 
-.. autoclass:: telapi_helper.twiml.Gather
+.. autoclass:: telapi_helper.telml.Gather
    :members:
 
-.. autoclass:: telapi_helper.twiml.Record
+.. autoclass:: telapi_helper.telml.Record
    :members:
 
 Seconday Verbs
 ~~~~~~~~~~~~~~
 
-.. autoclass:: telapi_helper.twiml.Hangup
+.. autoclass:: telapi_helper.telml.Hangup
    :members:
 
-.. autoclass:: telapi_helper.twiml.Redirect
+.. autoclass:: telapi_helper.telml.Redirect
    :members:
 
-.. autoclass:: telapi_helper.twiml.Reject
+.. autoclass:: telapi_helper.telml.Reject
    :members:
 
-.. autoclass:: telapi_helper.twiml.Pause
+.. autoclass:: telapi_helper.telml.Pause
    :members:
 
-.. autoclass:: telapi_helper.twiml.Sms
+.. autoclass:: telapi_helper.telml.Sms
    :members:
 
 Nouns
 ~~~~~~
 
-.. autoclass:: telapi_helper.twiml.Conference
+.. autoclass:: telapi_helper.telml.Conference
    :members:
 
-.. autoclass:: telapi_helper.twiml.Number
+.. autoclass:: telapi_helper.telml.Number
    :members:
 
 Constants
